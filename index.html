@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Harista Interiors — factory-direct luxury interiors in Belagavi." />
+    <title>Harista Interiors | Factory-Direct Luxury</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { ink: '#22231f', sand: '#f7f3ec', oat: '#e6dccb', oak: '#9c6d3e', gold: '#c69a5b' },
+            fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'] },
+            boxShadow: { luxury: '0 18px 60px rgba(34,35,31,.14)' }
+          }
+        }
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
+    <style>
+      html { scroll-behavior: smooth; }
+      body { font-family: 'DM Sans', sans-serif; }
+      .display { font-family: 'Playfair Display', Georgia, serif; }
+      .grain { background-image: radial-gradient(rgba(255,255,255,.10) .7px, transparent .7px); background-size: 7px 7px; }
+    </style>
+  </head>
+  <body class="bg-sand text-ink antialiased">
+    <header class="sticky top-0 z-50 border-b border-stone-200/80 bg-sand/95 backdrop-blur">
+      <nav class="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-8" aria-label="Main navigation">
+        <a href="#top" class="flex items-center gap-3" aria-label="Harista Interiors home">
+          <span class="grid h-10 w-10 place-items-center bg-ink text-lg font-semibold text-gold">H</span>
+          <span class="leading-none"><span class="block text-sm font-bold tracking-[.18em]">HARISTA</span><span class="block pt-1 text-[10px] tracking-[.26em] text-oak">INTERIORS</span></span>
+        </a>
+        <div class="hidden items-center gap-7 text-sm font-medium md:flex">
+          <a class="transition hover:text-oak" href="#services">Services</a><a class="transition hover:text-oak" href="#factory">Our Factory</a><a class="transition hover:text-oak" href="#portfolio">Portfolio</a><a class="transition hover:text-oak" href="#contact">Contact</a>
+        </div>
+        <a href="https://wa.me/919481800907" target="_blank" rel="noopener" class="rounded-full bg-[#1f7a4e] px-4 py-2.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#17633e] sm:px-5">WhatsApp <span class="hidden sm:inline">Us</span> ↗</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="overflow-hidden bg-ink">
+        <div class="mx-auto grid min-h-[660px] max-w-7xl lg:grid-cols-2">
+          <div class="relative flex items-center px-5 py-20 sm:px-8 lg:px-12 lg:py-24">
+            <div class="grain absolute inset-0 opacity-40"></div>
+            <div class="relative max-w-xl">
+              <p class="mb-6 flex items-center gap-3 text-xs font-bold uppercase tracking-[.22em] text-gold"><span class="h-px w-9 bg-gold"></span> Belagavi's Interior Studio</p>
+              <h1 class="display text-5xl leading-[1.05] text-sand sm:text-6xl xl:text-7xl">10 Years of Craft. <span class="text-gold">100+ Homes</span> Transformed. Factory-Direct Luxury.</h1>
+              <p class="mt-7 max-w-lg text-base leading-7 text-stone-300 sm:text-lg">Harista Interiors designs and builds bespoke modular spaces with the precision of our own factory and the care of a decade’s expertise.</p>
+              <div class="mt-9 flex flex-wrap items-center gap-5">
+                <a href="https://wa.me/919481800907" target="_blank" rel="noopener" class="rounded-full bg-gold px-6 py-3.5 font-bold text-ink transition hover:bg-[#dbb779]">Chat on WhatsApp ↗</a>
+                <a href="#portfolio" class="font-semibold text-sand underline decoration-gold decoration-2 underline-offset-8 transition hover:text-gold">View our work</a>
+              </div>
+            </div>
+          </div>
+          <div class="relative min-h-[420px] lg:min-h-full">
+            <img class="absolute inset-0 h-full w-full object-cover" src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1400&q=85" alt="Warm, luxurious modern living room" />
+            <div class="absolute inset-0 bg-gradient-to-t from-ink/35 to-transparent"></div>
+            <div class="absolute bottom-6 left-6 border border-white/30 bg-ink/70 px-5 py-4 text-sm text-white backdrop-blur"><span class="block text-xs uppercase tracking-[.18em] text-gold">Designed around you</span><span class="mt-1 block">From concept to installation</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="border-b border-oat bg-[#ede4d6]">
+        <div class="mx-auto grid max-w-7xl grid-cols-2 divide-x divide-oak/20 md:grid-cols-4 px-5 sm:px-8 lg:px-12">
+          <div class="py-8 md:py-10"><strong class="display text-3xl text-oak">10+</strong><span class="mt-1 block text-xs font-bold uppercase tracking-wider">Years Experience</span></div>
+          <div class="py-8 pl-5 md:py-10 md:pl-8"><strong class="display text-3xl text-oak">100+</strong><span class="mt-1 block text-xs font-bold uppercase tracking-wider">Completed Projects</span></div>
+          <div class="border-t border-oak/20 py-8 md:border-t-0 md:py-10 md:pl-8"><strong class="display text-3xl text-oak">01</strong><span class="mt-1 block text-xs font-bold uppercase tracking-wider">In-House Factory</span></div>
+          <div class="border-t border-oak/20 py-8 pl-5 md:border-t-0 md:py-10 md:pl-8"><strong class="display text-3xl text-oak">01</strong><span class="mt-1 block text-xs font-bold uppercase tracking-wider">Local Showroom</span></div>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12 lg:py-28" id="services">
+        <div class="max-w-2xl"><p class="text-xs font-bold uppercase tracking-[.22em] text-oak">What we create</p><h2 class="display mt-3 text-4xl leading-tight sm:text-5xl">Spaces with a sense of <em>belonging.</em></h2><p class="mt-5 text-lg leading-8 text-stone-600">For over a decade, our designers have shaped more than 100 homes and workspaces with careful attention to how people actually live and work.</p></div>
+        <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <article class="group min-h-64 rounded-sm bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-luxury"><span class="text-gold">01 /</span><h3 class="display mt-10 text-2xl">Modular Kitchens</h3><p class="mt-3 leading-6 text-stone-600">Intelligent layouts, seamless storage, and finishes that work as hard as you do—tailored to the way you cook and live.</p></article>
+          <article class="group min-h-64 rounded-sm bg-ink p-7 text-sand transition duration-300 hover:-translate-y-1 hover:shadow-luxury"><span class="text-gold">02 /</span><h3 class="display mt-10 text-2xl">Home Interiors</h3><p class="mt-3 leading-6 text-stone-300">Complete residential spaces designed for modern living: calm, functional, and unmistakably yours.</p></article>
+          <article class="group min-h-64 rounded-sm bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-luxury"><span class="text-gold">03 /</span><h3 class="display mt-10 text-2xl">Office &amp; Commercial</h3><p class="mt-3 leading-6 text-stone-600">Productive, polished environments that reflect your brand and support the way your team works.</p></article>
+          <article class="group min-h-64 rounded-sm bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-luxury"><span class="text-gold">04 /</span><h3 class="display mt-10 text-2xl">Wardrobes</h3><p class="mt-3 leading-6 text-stone-600">Floor-to-ceiling storage solutions engineered for maximum capacity and effortless daily use.</p></article>
+          <article class="group min-h-64 rounded-sm bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-luxury"><span class="text-gold">05 /</span><h3 class="display mt-10 text-2xl">Beds</h3><p class="mt-3 leading-6 text-stone-600">Custom bed designs that balance comfort, scale, and quiet luxury—built in our factory to your exact specifications.</p></article>
+          <article class="group min-h-64 rounded-sm bg-[#d7c4a9] p-7 transition duration-300 hover:-translate-y-1 hover:shadow-luxury"><span class="text-oak">06 /</span><h3 class="display mt-10 text-2xl">TV Units</h3><p class="mt-3 leading-6 text-stone-700">Sleek media walls and entertainment centres that organise technology while elevating the room.</p></article>
+        </div>
+      </section>
+
+      <section id="factory" class="bg-[#ded3c2] py-16 lg:py-24"><div class="mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 lg:grid-cols-2 lg:items-center lg:px-12"><div class="relative h-[420px] overflow-hidden"><img class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=1200&q=85" alt="Precision woodworking in an interiors factory" /><span class="absolute bottom-5 left-5 bg-ink px-4 py-3 text-xs font-bold uppercase tracking-widest text-gold">Kanbargi Industrial Area</span></div><div class="lg:pl-10"><p class="text-xs font-bold uppercase tracking-[.22em] text-oak">The Harista difference</p><h2 class="display mt-3 text-4xl leading-tight sm:text-5xl">Factory control. <br/>A better finish.</h2><p class="mt-6 leading-7 text-stone-700">Every project begins with thoughtful design and ends with factory-made furniture built to exact measurements in our own facility. This dual strength—design expertise refined over 10 years, paired with direct manufacturing control—delivers interiors that are both beautiful and perfectly fitted, without the usual compromises of quality or cost.</p><div class="mt-7 space-y-5"><div><h3 class="font-bold">Design Expertise You Can Trust</h3><p class="mt-1 text-sm leading-6 text-stone-600">Ten years of practice and over 100 completed projects mean our designers understand space, light, and lifestyle deeply.</p></div><div><h3 class="font-bold">Factory-Crafted Quality</h3><p class="mt-1 text-sm leading-6 text-stone-600">Every modular piece is made in our own facility, ensuring exact fit, superior materials, and consistent finish.</p></div><div><h3 class="font-bold">End-to-End Execution</h3><p class="mt-1 text-sm leading-6 text-stone-600">One team handles design, manufacturing, and on-site delivery—so nothing is lost in translation.</p></div></div></div></div></section>
+
+      <section id="portfolio" class="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12 lg:py-28"><div class="flex flex-wrap items-end justify-between gap-5"><div><p class="text-xs font-bold uppercase tracking-[.22em] text-oak">Selected projects</p><h2 class="display mt-3 text-4xl sm:text-5xl">Made to live in.</h2></div><a href="https://wa.me/919481800907" target="_blank" rel="noopener" class="border-b-2 border-gold pb-2 font-semibold">Discuss your space ↗</a></div><div class="mt-10 grid gap-4 md:grid-cols-2"><figure class="group relative h-[420px] overflow-hidden"><img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85" alt="Contemporary living room project" /><figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 p-6 text-white"><span class="rounded-full border border-white/50 px-3 py-1 text-xs">Home Interior</span><strong class="mt-3 block text-xl">Modern family residence</strong></figcaption></figure><figure class="group relative h-[420px] overflow-hidden"><img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1556912167-f556f1f39fdf?auto=format&fit=crop&w=1200&q=85" alt="Elegant modular kitchen project" /><figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 p-6 text-white"><span class="rounded-full border border-white/50 px-3 py-1 text-xs">Modular Kitchen</span><strong class="mt-3 block text-xl">Warm oak kitchen</strong></figcaption></figure><figure class="group relative h-[300px] overflow-hidden md:col-span-2"><img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1600&q=85" alt="Luxury bedroom project" /><figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 p-6 text-white"><span class="rounded-full border border-white/50 px-3 py-1 text-xs">Bedroom</span><strong class="mt-3 block text-xl">A restful private suite</strong></figcaption></figure></div></section>
+    </main>
+
+    <footer id="contact" class="bg-ink text-sand"><div class="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12 lg:py-20"><div class="grid gap-12 lg:grid-cols-[1.3fr_1fr]"><div><p class="text-xs font-bold uppercase tracking-[.22em] text-gold">Let’s make it exceptional</p><h2 class="display mt-4 max-w-2xl text-4xl leading-tight sm:text-5xl">Join more than 100 homeowners and business owners who chose thoughtfully designed, factory-crafted interiors.</h2><p class="mt-6 text-stone-300">We look forward to creating something exceptional together.</p><div class="mt-8 flex flex-wrap gap-4"><a class="rounded-full bg-gold px-6 py-3 font-bold text-ink" href="https://wa.me/919481800907" target="_blank" rel="noopener">Message on WhatsApp ↗</a><a class="rounded-full border border-stone-500 px-6 py-3 font-semibold transition hover:border-gold hover:text-gold" href="https://instagram.com/haristainteriors" target="_blank" rel="noopener">Instagram ↗</a></div></div><div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-1"><div><h3 class="font-bold text-gold">Showroom</h3><address class="mt-3 max-w-sm not-italic leading-7 text-stone-300">2nd Floor, Harista Interiors, Above Titan Attitude Watch, Bogarves Circle, Belagavi, Karnataka 590001.</address></div><div><h3 class="font-bold text-gold">Factory</h3><address class="mt-3 max-w-sm not-italic leading-7 text-stone-300">Plot No-7/B-3, Beside RTO Ground, Kanbargi Industrial Area, Belagavi, Karnataka 590017.</address></div></div></div><div class="mt-16 flex flex-wrap justify-between gap-4 border-t border-stone-700 pt-6 text-sm text-stone-400"><span>© 2026 Harista Interiors. Crafted in Belagavi.</span><a class="hover:text-gold" href="https://wa.me/919481800907" target="_blank" rel="noopener">WhatsApp: 9481800907</a><a class="hover:text-gold" href="https://instagram.com/haristainteriors" target="_blank" rel="noopener">@haristainteriors</a></div></div></footer>
+  </body>
+</html>
