@@ -347,6 +347,14 @@
         </section>
     </main>
 
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-sm flex items-center justify-center p-4">
+        <button id="close-lightbox" class="absolute top-5 right-5 text-white text-3xl font-bold hover:text-gold transition cursor-pointer z-50">&times;</button>
+        <div class="relative max-w-5xl max-h-[90vh] flex items-center justify-center">
+            <img id="lightbox-img" class="max-h-[85vh] max-w-full object-contain rounded shadow-2xl" src="" alt="Expanded portfolio image">
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="bg-ink text-sand">
         <div class="mx-auto max-w-7xl px-5 py-12 sm:px-8 lg:px-12">
@@ -364,6 +372,7 @@
     <!-- Fixed Tab Switching Script -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Tab switching logic
             const tabs = document.querySelectorAll('.tab-btn');
             const panels = document.querySelectorAll('.gallery-panel');
 
@@ -371,27 +380,60 @@
                 tab.addEventListener('click', function() {
                     const target = this.getAttribute('data-tab');
 
-                    // Reset all tabs
                     tabs.forEach(t => {
                         t.classList.remove('active');
                         t.classList.add('bg-white');
                     });
 
-                    // Activate clicked tab
                     this.classList.add('active');
                     this.classList.remove('bg-white');
 
-                    // Hide all panels
                     panels.forEach(panel => {
-                        panel.classList.remove('active');
+                        if (panel.id === target) {
+                            panel.classList.add('active');
+                        } else {
+                            panel.classList.remove('active');
+                        }
                     });
-
-                    // Show the selected panel
-                    const activePanel = document.getElementById(target);
-                    if (activePanel) {
-                        activePanel.classList.add('active');
-                    }
                 });
+            });
+
+            // Lightbox Modal Logic
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const closeBtn = document.getElementById('close-lightbox');
+            const galleryImages = document.querySelectorAll('.gallery-panel img');
+
+            galleryImages.forEach(img => {
+                img.classList.add('cursor-pointer'); // Add pointer cursor on hover
+                img.addEventListener('click', function() {
+                    lightboxImg.src = this.src;
+                    lightboxImg.alt = this.alt;
+                    lightbox.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                });
+            });
+
+            function closeLightbox() {
+                lightbox.classList.add('hidden');
+                lightboxImg.src = '';
+                document.body.style.overflow = 'auto'; // Restore background scrolling
+            }
+
+            closeBtn.addEventListener('click', closeLightbox);
+
+            // Close when clicking outside the image container
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+
+            // Close on ESC key press
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) {
+                    closeLightbox();
+                }
             });
         });
     </script>
