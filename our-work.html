@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Explore our portfolio of modular kitchens, home interiors, wardrobes, beds and commercial projects by Harista Interiors, Belagavi." />
+    <title>Our Work | Harista Interiors</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ink: '#22231f',
+                        sand: '#f7f3ec',
+                        oat: '#e6dccb',
+                        oak: '#9c6d3e',
+                        gold: '#c69a5b'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif']
+                    },
+                    boxShadow: {
+                        luxury: '0 18px 60px rgba(34,35,31,.14)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/logo.jpg">
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .display {
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+
+        /* Tab active state */
+        .tab-btn.active {
+            background-color: #22231f !important;
+            color: #f7f3ec !important;
+        }
+
+        /* Gallery panels - controlled by JS */
+        .gallery-panel {
+            display: none;
+        }
+
+        .gallery-panel.active {
+            display: grid;
+        }
+    </style>
+</head>
+
+<body class="bg-sand text-ink antialiased">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 border-b border-stone-200/80 bg-sand/95 backdrop-blur">
+        <nav class="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-8" aria-label="Main navigation">
+            <a href="index.html" class="flex items-center gap-3" aria-label="Harista Interiors home">
+                <img src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/logo.jpg" alt="Harista Interiors" class="h-10 w-10 object-contain" />
+                <span class="leading-none">
+                    <span class="block text-sm font-bold tracking-[.18em]">HARISTA</span>
+                    <span class="block pt-1 text-[10px] tracking-[.26em] text-oak">INTERIORS</span>
+                </span>
+            </a>
+
+            <div class="hidden items-center gap-7 text-sm font-medium md:flex">
+                <a class="transition hover:text-oak" href="index.html#services">Services</a>
+                <a class="transition hover:text-oak" href="index.html#factory">Our Factory</a>
+                <a class="transition hover:text-oak" href="index.html#portfolio">Portfolio</a>
+                <a class="transition hover:text-oak" href="index.html#contact">Contact</a>
+                <a class="text-oak font-semibold" href="our-work.html">Our Work</a>
+            </div>
+
+            <a href="https://wa.me/919481809907" target="_blank" rel="noopener" class="rounded-full bg-[#1f7a4e] px-4 py-2.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#17633e] sm:px-5">
+                WhatsApp <span class="hidden sm:inline">Us</span> ↗
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="bg-ink text-sand">
+            <div class="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12 lg:py-20">
+                <p class="text-xs font-bold uppercase tracking-[.22em] text-gold">Portfolio</p>
+                <h1 class="display mt-3 text-4xl leading-tight sm:text-5xl lg:text-6xl">
+                    Our Work
+                </h1>
+                <p class="mt-5 max-w-2xl text-lg text-stone-300">
+                    A selection of spaces we’ve designed and built — from modular kitchens to complete home interiors.
+                </p>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="mx-auto max-w-7xl px-5 py-12 sm:px-8 lg:px-12 lg:py-16">
+
+            <!-- Tabs -->
+            <div class="mb-10 flex flex-wrap gap-2" id="tabs">
+                <button class="tab-btn active rounded-full px-5 py-2.5 text-sm font-medium transition" data-tab="kitchens">
+                    Modular Kitchens
+                </button>
+                <button class="tab-btn rounded-full bg-white px-5 py-2.5 text-sm font-medium transition hover:bg-ink hover:text-sand" data-tab="homes">
+                    Home Interiors
+                </button>
+                <button class="tab-btn rounded-full bg-white px-5 py-2.5 text-sm font-medium transition hover:bg-ink hover:text-sand" data-tab="office">
+                    Office & Commercial
+                </button>
+                <button class="tab-btn rounded-full bg-white px-5 py-2.5 text-sm font-medium transition hover:bg-ink hover:text-sand" data-tab="wardrobes">
+                    Wardrobes
+                </button>
+                <button class="tab-btn rounded-full bg-white px-5 py-2.5 text-sm font-medium transition hover:bg-ink hover:text-sand" data-tab="beds">
+                    Beds
+                </button>
+                <button class="tab-btn rounded-full bg-white px-5 py-2.5 text-sm font-medium transition hover:bg-ink hover:text-sand" data-tab="tv">
+                    TV Units
+                </button>
+            </div>
+
+            <!-- Gallery Panels -->
+
+            <!-- Modular Kitchens -->
+            <div class="gallery-panel active gap-4 sm:grid-cols-2 lg:grid-cols-3" id="kitchens">
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Modular%20Kitchen/IMG-20260824-WA0016.jpg" alt="Warm oak modular kitchen" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Modular%20Kitchen/IMG-20260824-WA0018.jpg" alt="Modern white modular kitchen" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Modular%20Kitchen/IMG-20260824-WA0035.jpg" alt="Luxury modular kitchen" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Modular%20Kitchen/IMG-20260824-WA0037.jpg" alt="Minimal kitchen design" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Modular%20Kitchen/IMG-20260824-WA0051.jpg" alt="Modern living room" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Modular%20Kitchen/IMG-20260824-WA0054.jpg" alt="Bedroom interior" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Modular%20Kitchen/IMG-20260824-WA0057.jpg" alt="Luxury living space" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+            </div>
+
+            <!-- Home Interiors -->
+            <div class="gallery-panel gap-4 sm:grid-cols-2 lg:grid-cols-3" id="homes">
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Home%20Interiors/IMG-20260824-WA0009.jpg" alt="Modern living room" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Home%20Interiors/IMG-20260824-WA0021.jpg" alt="Bedroom interior" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Home%20Interiors/IMG-20260824-WA0028.jpg" alt="Luxury living space" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Home%20Interiors/IMG-20260824-WA0033.jpg" alt="Modern living room" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Home%20Interiors/IMG-20260824-WA0047.jpg" alt="Bedroom interior" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Home%20Interiors/IMG-20260824-WA0053.jpg" alt="Luxury living space" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Home%20Interiors/IMG-20260824-WA0061.jpg" alt="Modern living room" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Home%20Interiors/IMG-20260824-WA0062.jpg" alt="Bedroom interior" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Home%20Interiors/IMG-20260824-WA0063.jpg" alt="Luxury living space" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+            </div>
+
+            <!-- Office & Commercial -->
+            <div class="gallery-panel gap-4 sm:grid-cols-2 lg:grid-cols-3" id="office">
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Office%20%26%20Commercial/Screenshot_2026-08-25-12-54-35-53_6012fa4d4ddec268fc5c7112cbb265e7.jpg" alt="Modern living room" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Office%20%26%20Commercial/Screenshot_2026-08-25-12-54-49-04_6012fa4d4ddec268fc5c7112cbb265e7.jpg" alt="Bedroom interior" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Office%20%26%20Commercial/Screenshot_2026-08-25-12-54-22-47_6012fa4d4ddec268fc5c7112cbb265e7.jpg" alt="Luxury living space" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Office%20%26%20Commercial/Screenshot_2026-08-25-12-52-32-52_6012fa4d4ddec268fc5c7112cbb265e7.jpg" alt="Modern living room" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Office%20%26%20Commercial/Screenshot_2026-08-25-12-52-17-18_6012fa4d4ddec268fc5c7112cbb265e7.jpg" alt="Bedroom interior" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Office%20%26%20Commercial/Screenshot_2026-08-25-12-52-00-23_6012fa4d4ddec268fc5c7112cbb265e7.jpg" alt="Luxury living space" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Office%20%26%20Commercial/Screenshot_2026-08-25-12-51-41-30_6012fa4d4ddec268fc5c7112cbb265e7.jpg" alt="Modern living room" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Office%20%26%20Commercial/Screenshot_2026-08-25-12-51-20-74_6012fa4d4ddec268fc5c7112cbb265e7.jpg" alt="Bedroom interior" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Office%20%26%20Commercial/Screenshot_2026-08-25-12-51-12-01_6012fa4d4ddec268fc5c7112cbb265e7.jpg" alt="Luxury living space" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Office%20%26%20Commercial/Screenshot_2026-08-25-12-50-07-25_6012fa4d4ddec268fc5c7112cbb265e7.jpg" alt="Luxury living space" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+            </div>
+
+            <!-- Wardrobes -->
+            <div class="gallery-panel gap-4 sm:grid-cols-2 lg:grid-cols-3" id="wardrobes">
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Wardrobes/IMG-20260824-WA0010.jpg" alt="Modern living room" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Wardrobes/IMG-20260824-WA0012.jpg" alt="Bedroom interior" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Wardrobes/IMG-20260824-WA0014.jpg" alt="Luxury living space" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Wardrobes/IMG-20260824-WA0017.jpg" alt="Modern living room" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Wardrobes/IMG-20260824-WA0026.jpg" alt="Bedroom interior" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Wardrobes/IMG-20260824-WA0058.jpg" alt="Luxury living space" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Wardrobes/IMG-20260824-WA0062.jpg" alt="Modern living room" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Wardrobes/IMG-20260824-WA0065.jpg" alt="Bedroom interior" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+            </div>
+
+            <!-- Beds -->
+            <div class="gallery-panel gap-4 sm:grid-cols-2 lg:grid-cols-3" id="beds">
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Beds/IMG-20260824-WA0023.jpg" alt="Modern living room" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Beds/IMG-20260824-WA0024.jpg" alt="Bedroom interior" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Beds/IMG-20260824-WA0025.jpg" alt="Luxury living space" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Beds/IMG-20260824-WA0027.jpg" alt="Modern living room" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Beds/IMG-20260824-WA0055.jpg" alt="Bedroom interior" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Beds/IMG-20260824-WA0058.jpg" alt="Luxury living space" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Beds/IMG-20260824-WA0065.jpg" alt="Modern living room" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+            </div>
+
+            <!-- TV Units -->
+            <div class="gallery-panel gap-4 sm:grid-cols-2 lg:grid-cols-3" id="tv">
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/TV%20Units/IMG-20260824-WA0009.jpg" alt="Bedroom interior" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/TV%20Units/IMG-20260824-WA0011.jpg" alt="Luxury living space" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
+                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/TV%20Units/IMG-20260824-WA0047.jpg" alt="Modern living room" />
+                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                </figure>
+            </div>
+
+        </section>
+
+        <!-- CTA -->
+        <section class="bg-[#ede4d6] py-16">
+            <div class="mx-auto max-w-3xl px-5 text-center">
+                <h2 class="display text-3xl sm:text-4xl">Like what you see?</h2>
+                <p class="mt-4 text-stone-600">Let’s discuss how we can create something similar for your space.</p>
+                <a href="https://wa.me/919481809907" target="_blank" rel="noopener" class="mt-8 inline-block rounded-full bg-ink px-8 py-3.5 font-semibold text-sand transition hover:bg-oak">
+                    Chat on WhatsApp ↗
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-ink text-sand">
+        <div class="mx-auto max-w-7xl px-5 py-12 sm:px-8 lg:px-12">
+            <div class="flex flex-wrap justify-between gap-6 text-sm text-stone-400">
+                <span>© 2026 Harista Interiors. Crafted in Belagavi.</span>
+                <div class="flex gap-6">
+                    <a class="hover:text-gold" href="https://wa.me/919481809907" target="_blank" rel="noopener">WhatsApp</a>
+                    <a class="hover:text-gold" href="https://instagram.com/haristainteriors" target="_blank" rel="noopener">Instagram</a>
+                    <a class="hover:text-gold" href="index.html">Home</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Fixed Tab Switching Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.tab-btn');
+            const panels = document.querySelectorAll('.gallery-panel');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const target = this.getAttribute('data-tab');
+
+                    // Reset all tabs
+                    tabs.forEach(t => {
+                        t.classList.remove('active');
+                        t.classList.add('bg-white');
+                    });
+
+                    // Activate clicked tab
+                    this.classList.add('active');
+                    this.classList.remove('bg-white');
+
+                    // Hide all panels
+                    panels.forEach(panel => {
+                        panel.classList.remove('active');
+                    });
+
+                    // Show the selected panel
+                    const activePanel = document.getElementById(target);
+                    if (activePanel) {
+                        activePanel.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
