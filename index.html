@@ -12,11 +12,11 @@
             theme: {
                 extend: {
                     colors: {
-                        ink: '#22231f',
-                        sand: '#f7f3ec',
-                        oat: '#e6dccb',
-                        oak: '#9c6d3e',
-                        gold: '#c69a5b'
+                        ink: '#182241',
+                        sand: '#D0E0CD',
+                        oat: '#7B949C',
+                        oak: '#536C7C',
+                        gold: '#D0E0CD'
                     },
                     fontFamily: {
                         sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif']
@@ -31,20 +31,33 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <!-- Browser Tab Icon (Favicon) -->
-    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/logo.jpg">
+    <link rel="icon" type="image/png" href="D:\BK Projects\Harista Interiors\POC 3\assests\logo.png" />
 
     <!-- Local SEO Meta Tags -->
-    <title>Best Interior Designers in Belagavi | Harista Interiors</title>
-    <meta name="description" content="Harista Interiors offers premium residential and commercial interior design services in Belagavi. Contact us for custom modular kitchens, wardrobe designs, and luxury home interiors.">
     <meta name="robots" content="index, follow">
     <style>
+        :root {
+            --ink: #182241;
+            --deep: #213C4E;
+            --mint: #D9E5D7;
+            --soft-mint: #D0E0CD;
+            --blue-grey: #7B949C;
+            --slate: #536C7C;
+            --white-mint: #F4F7F1;
+            --line: rgba(83, 108, 124, .28);
+        }
+
         html {
             scroll-behavior: smooth;
         }
 
         body {
             font-family: 'DM Sans', sans-serif;
+            background: var(--mint) !important;
+            color: var(--ink);
+            overflow-x: hidden;
         }
 
         .display {
@@ -52,9 +65,1168 @@
         }
 
         .grain {
-            background-image: radial-gradient(rgba(255, 255, 255, .10) .7px, transparent .7px);
+            background-image: radial-gradient(rgba(24, 34, 65, .08) .7px, transparent .7px);
             background-size: 7px 7px;
         }
+
+        /* =========================================================
+           HEADER
+           ========================================================= */
+
+        header {
+            position: fixed !important;
+            top: 1rem !important;
+            left: 1rem !important;
+            right: 1rem !important;
+            z-index: 1000 !important;
+
+            height: 4.35rem !important;
+            overflow: hidden !important;
+
+            border: 1px solid rgba(83, 108, 124, .42) !important;
+            border-radius: 1rem !important;
+
+            background: rgba(217, 229, 215, .92) !important;
+            backdrop-filter: blur(16px) saturate(110%) !important;
+            -webkit-backdrop-filter: blur(16px) saturate(110%) !important;
+
+            box-shadow: 0 12px 35px rgba(24, 34, 65, .10) !important;
+        }
+
+        header nav {
+            height: 4.35rem !important;
+            max-width: none !important;
+            padding-left: 1.5rem !important;
+            padding-right: 1.5rem !important;
+        }
+
+        header img {
+            filter: saturate(.82) contrast(1.04);
+        }
+
+        header nav a {
+            text-decoration: none;
+        }
+
+        header nav>div {
+            gap: 1.7rem !important;
+            font-size: .92rem !important;
+        }
+
+        header nav a:not([href*="wa.me"]) {
+            color: var(--ink);
+        }
+
+        header nav a:not([href*="wa.me"])::after {
+            display: block;
+            width: 0;
+            height: 1px;
+            margin-top: 3px;
+            content: '';
+            background: var(--slate);
+            transition: width .25s ease;
+        }
+
+        header nav a:not([href*="wa.me"]):hover::after {
+            width: 100%;
+        }
+
+        header nav a[href*="wa.me"] {
+            background: var(--ink) !important;
+            color: var(--mint) !important;
+            box-shadow: 0 8px 22px rgba(24, 34, 65, .14);
+        }
+
+        /* =========================================================
+           HERO
+           ========================================================= */
+
+        main>section:first-child {
+            position: relative !important;
+
+            min-height: 100svh !important;
+            height: 100svh !important;
+
+            box-sizing: border-box !important;
+            padding: 6.35rem 1rem 1.25rem !important;
+
+            overflow: hidden !important;
+
+            background:
+                radial-gradient(circle at 74% 48%,
+                    rgba(123, 148, 156, .14),
+                    transparent 30%),
+                linear-gradient(135deg,
+                    #D9E5D7 0%,
+                    #D0E0CD 55%,
+                    #B7CBC2 100%) !important;
+        }
+
+        /* Very subtle background contour. This is NOT a border around
+           the animation and does not touch the Lottie frame. */
+        main>section:first-child::before {
+            position: absolute;
+            top: 9%;
+            right: 3%;
+            width: 48%;
+            height: 78%;
+            content: '';
+            border: 1px solid rgba(83, 108, 124, .13);
+            border-radius: 48% 52% 55% 45% / 40% 45% 55% 60%;
+            transform: rotate(-7deg);
+            pointer-events: none;
+        }
+
+        main>section:first-child>.hero-layout {
+            position: relative;
+            z-index: 1;
+
+            width: min(100%, 82rem) !important;
+            height: 100% !important;
+            min-height: 0 !important;
+
+            margin: 0 auto !important;
+
+            display: grid !important;
+            grid-template-columns:
+                minmax(0, 1fr) minmax(25rem, 1.05fr) !important;
+
+            align-items: center !important;
+            gap: clamp(1rem, 2vw, 2rem) !important;
+
+            border: 0 !important;
+            border-radius: 0 !important;
+            background: transparent !important;
+            box-shadow: none !important;
+        }
+
+        /* Left hero column */
+        .hero-layout>div:first-child {
+            height: 100% !important;
+            min-height: 0 !important;
+
+            padding:
+                .25rem 0 1rem clamp(1rem, 4vw, 4rem) !important;
+
+            display: flex !important;
+            align-items: center !important;
+            justify-content: flex-start !important;
+
+            border: 0 !important;
+            background: transparent !important;
+        }
+
+        .hero-layout .hero-copy {
+            position: relative !important;
+            z-index: 5 !important;
+
+            width: 100% !important;
+            max-width: 37rem !important;
+            margin: 0 !important;
+        }
+
+        .hero-layout .hero-copy>p:first-child {
+            margin-bottom: clamp(.75rem, 1.2vw, 1.15rem) !important;
+
+            font-size: .68rem !important;
+            line-height: 1.2 !important;
+            letter-spacing: .21em !important;
+
+            color: var(--slate) !important;
+        }
+
+        .hero-layout h1:not(.hero-headline) {
+            max-width: 12.8ch !important;
+            margin: 0 !important;
+
+            font-size: clamp(2.55rem, 3.65vw, 3.9rem) !important;
+            line-height: .91 !important;
+            letter-spacing: -.052em !important;
+
+            text-wrap: balance !important;
+            color: var(--ink) !important;
+        }
+
+        /* Editorial hero headline — larger, layered and visually tied to the artwork */
+        .hero-layout .hero-headline {
+            max-width: 15ch !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            font-size: clamp(3.15rem, 4.45vw, 4.65rem) !important;
+            line-height: .92 !important;
+            letter-spacing: -.055em !important;
+            color: var(--ink) !important;
+            text-wrap: balance !important;
+        }
+
+        .hero-headline-line {
+            display: block;
+        }
+
+        .hero-headline-accent {
+            margin-left: 0 !important;
+            color: var(--ink) !important;
+        }
+
+        .hero-headline-accent em {
+            font-style: italic;
+            color: var(--ink) !important;
+        }
+
+        .hero-headline-final {
+            margin-top: .12em;
+            margin-left: 0 !important;
+            color: var(--ink) !important;
+            font-size: .82em;
+            letter-spacing: -.045em;
+        }
+
+        .hero-headline-final::after {
+            content: '';
+            display: inline-block;
+            width: 2.8rem;
+            height: .16rem;
+            margin: 0 0 .18em .65rem;
+            border-radius: 999px;
+            background: var(--ink);
+            opacity: .45;
+        }
+
+        .hero-layout .hero-copy>p:not(:first-child) {
+            max-width: 30rem !important;
+            margin-top: 1rem !important;
+
+            font-size: clamp(.78rem, .88vw, .92rem) !important;
+            line-height: 1.5 !important;
+
+            color: var(--slate) !important;
+        }
+
+        .hero-layout .hero-copy>div:last-child {
+            margin-top: 1.1rem !important;
+            gap: 1rem !important;
+        }
+
+        .hero-layout .hero-copy>div:last-child a:first-child {
+            background: var(--ink) !important;
+            color: var(--mint) !important;
+            box-shadow: 0 10px 24px rgba(24, 34, 65, .12);
+        }
+
+        .hero-layout .hero-copy>div:last-child a:first-child:hover {
+            background: var(--slate) !important;
+        }
+
+        .hero-layout .hero-copy>div:last-child a:last-child {
+            color: var(--ink) !important;
+            text-decoration: none !important;
+            border: 1px solid rgba(83, 108, 124, .65);
+            border-radius: 999px;
+            padding: .75rem 1.35rem;
+        }
+
+        .hero-layout .hero-copy>div:last-child a:last-child:hover {
+            background: rgba(255, 255, 255, .28);
+        }
+
+        /* =========================================================
+           LOTTIE — FLOATING ARTWORK
+
+           IMPORTANT:
+           There is NO border, card, rounded wrapper, clipping,
+           box-shadow or pseudo-element around the animation.
+           The frame is only a transparent sizing layer.
+           ========================================================= */
+
+        .hero-layout>.hero-lottie {
+            position: relative !important;
+
+            width: 100% !important;
+            height: min(31rem, 66vh) !important;
+
+            min-height: 0 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+
+            border: 0 !important;
+            border-radius: 0 !important;
+            background: transparent !important;
+            box-shadow: none !important;
+            outline: 0 !important;
+
+            overflow: visible !important;
+            clip-path: none !important;
+            transform: none !important;
+            filter: none !important;
+            isolation: auto !important;
+        }
+
+        /* Soft atmospheric glow only */
+        .hero-layout>.hero-lottie::before {
+            content: '' !important;
+
+            position: absolute !important;
+            inset: -4% -7% !important;
+            z-index: -1 !important;
+
+            border: 0 !important;
+            border-radius: 50% !important;
+
+            background:
+                radial-gradient(ellipse at center,
+                    rgba(208, 224, 205, .72) 0%,
+                    rgba(123, 148, 156, .12) 40%,
+                    rgba(217, 229, 215, 0) 72%) !important;
+
+            box-shadow: none !important;
+            pointer-events: none !important;
+        }
+
+        /* Remove every contour/card pseudo-element */
+        .hero-layout>.hero-lottie::after,
+        .hero-lottie-frame::before,
+        .hero-lottie-frame::after {
+            display: none !important;
+            content: none !important;
+        }
+
+        /* Transparent sizing wrapper */
+        .hero-lottie-frame {
+            position: relative !important;
+
+            width: min(100%, 32rem) !important;
+            height: min(31rem, 66vh) !important;
+
+            margin: 0 !important;
+            padding: 0 !important;
+
+            overflow: visible !important;
+
+            border: 0 !important;
+            border-radius: 0 !important;
+            background: transparent !important;
+            box-shadow: none !important;
+            outline: 0 !important;
+
+            clip-path: none !important;
+            isolation: auto !important;
+        }
+
+        /* Actual animation */
+        .hero-lottie-frame lottie-player {
+            display: block !important;
+
+            width: 100% !important;
+            height: 100% !important;
+
+            margin: 0 !important;
+            padding: 0 !important;
+
+            border: 0 !important;
+            border-radius: 0 !important;
+            background: transparent !important;
+            box-shadow: none !important;
+            outline: 0 !important;
+
+            overflow: visible !important;
+
+            /*
+             * The JSON has internal whitespace.
+             * Scaling the player makes the room itself much larger,
+             * matching the supplied reference screenshot.
+             */
+            transform: scale(1.22) !important;
+            transform-origin: center center !important;
+
+            mix-blend-mode: multiply !important;
+            opacity: .98 !important;
+
+            filter:
+                drop-shadow(0 20px 28px rgba(24, 34, 65, .09)) !important;
+        }
+
+        /* =========================================================
+           STATS STRIP
+           ========================================================= */
+
+        main>section:nth-child(2) {
+            position: relative !important;
+            z-index: 4 !important;
+
+            max-width: 82rem !important;
+            margin: 0 auto !important;
+
+            border-color: rgba(123, 148, 156, .48) !important;
+            border-radius: 0 0 1.25rem 1.25rem !important;
+
+            background: rgba(33, 60, 78, .94) !important;
+            box-shadow: 0 20px 45px rgba(24, 34, 65, .12);
+        }
+
+        main>section:nth-child(2) strong {
+            color: var(--soft-mint) !important;
+        }
+
+        main>section:nth-child(2) span {
+            color: var(--soft-mint) !important;
+        }
+
+        /* =========================================================
+           SERVICES
+           ========================================================= */
+
+        #services {
+            max-width: 92rem !important;
+            padding-top: 8rem !important;
+            padding-bottom: 8rem !important;
+            background: var(--mint) !important;
+        }
+
+        #services>div:first-child {
+            max-width: 36rem;
+        }
+
+        #services>div:first-child>p:first-child {
+            color: var(--slate) !important;
+        }
+
+        #services>div:first-child>p:last-child {
+            color: var(--blue-grey) !important;
+        }
+
+        #services h2,
+        #portfolio h2 {
+            color: var(--ink) !important;
+            letter-spacing: -.045em;
+        }
+
+        #services>div:last-child {
+            width: 100% !important;
+            margin-top: 3rem !important;
+
+            display: grid !important;
+            grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+            gap: 1.5rem !important;
+        }
+
+        #services article {
+            min-height: 19rem !important;
+
+            border: 1px solid rgba(123, 148, 156, .42) !important;
+            border-radius: 1.15rem !important;
+
+            background:
+                linear-gradient(145deg,
+                    rgba(83, 108, 124, .42),
+                    rgba(33, 60, 78, .72)) !important;
+
+            box-shadow:
+                inset 0 1px 0 rgba(208, 224, 205, .16),
+                0 18px 45px rgba(24, 34, 65, .16) !important;
+
+            transition:
+                transform .35s ease,
+                border-color .35s ease,
+                box-shadow .35s ease !important;
+        }
+
+        #services article:nth-child(2),
+        #services article:nth-child(5) {
+            transform: translateY(2rem);
+        }
+
+        #services article:hover {
+            border-color: rgba(208, 224, 205, .85) !important;
+            box-shadow:
+                0 0 0 1px rgba(208, 224, 205, .16),
+                0 28px 60px rgba(24, 34, 65, .28) !important;
+        }
+
+        #services article span,
+        #services article h3 {
+            color: var(--soft-mint) !important;
+        }
+
+        #services article p {
+            color: #D9E5D7 !important;
+            opacity: 1 !important;
+        }
+
+        /* =========================================================
+           FACTORY
+           ========================================================= */
+
+        #factory {
+            position: relative;
+            overflow: hidden;
+
+            padding-top: 7rem !important;
+            padding-bottom: 7rem !important;
+
+            background: var(--soft-mint) !important;
+        }
+
+        #factory::before {
+            position: absolute;
+            inset: 0;
+            content: '';
+
+            background:
+                linear-gradient(90deg,
+                    rgba(24, 34, 65, .98) 0 43%,
+                    rgba(33, 60, 78, .82) 61%,
+                    rgba(83, 108, 124, .35) 100%);
+        }
+
+        #factory>div {
+            position: relative;
+            z-index: 1;
+
+            max-width: 92rem !important;
+            grid-template-columns: 1.05fr .95fr !important;
+        }
+
+        #factory>div>div:first-child {
+            height: 34rem !important;
+
+            border: 1px solid rgba(208, 224, 205, .48);
+            border-radius: 1.25rem;
+
+            box-shadow: 22px 26px 0 var(--blue-grey);
+            transform: rotate(-1.5deg);
+        }
+
+        #factory>div>div:first-child img {
+            filter: grayscale(.12) contrast(1.05);
+        }
+
+        #factory>div>div:last-child {
+            padding: 2.5rem !important;
+
+            border: 1px solid rgba(208, 224, 205, .22);
+            border-radius: 1.25rem;
+
+            background: rgba(24, 34, 65, .70);
+            backdrop-filter: blur(16px);
+        }
+
+        #factory h2,
+        #factory h3,
+        #factory>div>div:last-child>p:first-child {
+            color: var(--soft-mint) !important;
+        }
+
+        #factory>div>div:last-child>p {
+            color: #D9E5D7 !important;
+        }
+
+        #factory>div>div:last-child .space-y-5 {
+            display: grid;
+            gap: .75rem;
+        }
+
+        #factory>div>div:last-child .space-y-5>div {
+            padding: 1rem 1.1rem;
+
+            border-left: 2px solid var(--soft-mint);
+            background: rgba(83, 108, 124, .22);
+        }
+
+        #factory>div>div:last-child .text-sm {
+            color: #D9E5D7 !important;
+        }
+
+        /* =========================================================
+           PORTFOLIO
+           ========================================================= */
+
+        #portfolio {
+            max-width: 92rem !important;
+            padding-top: 8rem !important;
+            padding-bottom: 8rem !important;
+
+            background: var(--mint) !important;
+        }
+
+        #portfolio>div:first-child>div>p {
+            color: var(--slate) !important;
+        }
+
+        #portfolio>div:first-child+div {
+            margin-top: 3rem !important;
+            grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr) !important;
+            gap: 1.25rem !important;
+        }
+
+        #portfolio figure {
+            border: 1px solid rgba(123, 148, 156, .42);
+            border-radius: 1.25rem;
+
+            box-shadow: 0 20px 45px rgba(24, 34, 65, .18);
+
+            transform:
+                perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+
+            transition:
+                transform .35s ease,
+                box-shadow .35s ease;
+        }
+
+        #portfolio figure:first-child {
+            height: 29rem !important;
+            margin-top: 6rem;
+        }
+
+        #portfolio figure:nth-child(2) {
+            height: 38rem !important;
+        }
+
+        #portfolio figure:nth-child(3) {
+            height: 22rem !important;
+            margin-right: 7vw;
+        }
+
+        #portfolio figure:hover {
+            box-shadow:
+                0 30px 65px rgba(24, 34, 65, .30),
+                0 0 0 1px rgba(208, 224, 205, .28);
+        }
+
+        #portfolio figcaption {
+            background:
+                linear-gradient(to top,
+                    rgba(24, 34, 65, .92),
+                    transparent) !important;
+        }
+
+        /* =========================================================
+           FOOTER
+           ========================================================= */
+
+        footer {
+            position: relative;
+            overflow: hidden;
+
+            border-top: 1px solid rgba(123, 148, 156, .42);
+
+            background: var(--ink) !important;
+        }
+
+        footer::after {
+            position: absolute;
+            right: -10rem;
+            bottom: -13rem;
+
+            width: 31rem;
+            height: 31rem;
+
+            content: '';
+
+            border: 1px solid rgba(208, 224, 205, .22);
+            border-radius: 50%;
+
+            box-shadow:
+                inset 0 0 80px rgba(208, 224, 205, .06);
+        }
+
+        footer>div {
+            position: relative;
+            z-index: 1;
+            max-width: 92rem !important;
+        }
+
+        footer .text-gold,
+        footer h3 {
+            color: var(--soft-mint) !important;
+        }
+
+        footer iframe {
+            border-radius: .8rem;
+            filter:
+                grayscale(1) invert(.88) hue-rotate(80deg) contrast(.8);
+        }
+
+        /* =========================================================
+           GLOBAL TAILWIND COLOR CLEANUP
+           ========================================================= */
+
+        [class*="text-stone-"] {
+            color: var(--blue-grey) !important;
+        }
+
+        [class*="text-white"] {
+            color: var(--soft-mint) !important;
+        }
+
+        [class*="border-stone-"],
+        [class*="border-white"] {
+            border-color: var(--slate) !important;
+        }
+
+        /* =========================================================
+           RESPONSIVE
+           ========================================================= */
+
+        @media (max-height: 720px) and (min-width: 901px) {
+            main>section:first-child {
+                padding-top: 6rem !important;
+            }
+
+            .hero-layout h1 {
+                font-size: clamp(2.4rem, 3.05vw, 3.2rem) !important;
+                line-height: .9 !important;
+            }
+
+            .hero-layout .hero-copy>p:not(:first-child) {
+                margin-top: .75rem !important;
+                font-size: .78rem !important;
+                line-height: 1.4 !important;
+            }
+
+            .hero-layout .hero-copy>div:last-child {
+                margin-top: .8rem !important;
+            }
+
+            .hero-layout>.hero-lottie {
+                height: min(27rem, 61vh) !important;
+            }
+
+            .hero-lottie-frame {
+                width: min(100%, 30rem) !important;
+                height: min(27rem, 59vh) !important;
+            }
+
+            .hero-lottie-frame lottie-player {
+                transform: scale(1.16) !important;
+            }
+        }
+
+        @media (max-width: 1100px) {
+            main>section:first-child>.hero-layout {
+                grid-template-columns:
+                    minmax(0, 1fr) minmax(20rem, .9fr) !important;
+            }
+
+            .hero-layout .hero-headline {
+                font-size: clamp(2.9rem, 4.6vw, 4rem) !important;
+            }
+
+            .hero-lottie-frame {
+                width: min(100%, 30rem) !important;
+            }
+
+            #services>div:last-child {
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            }
+        }
+
+        @media (max-width: 900px) {
+            header {
+                top: .75rem !important;
+                left: .75rem !important;
+                right: .75rem !important;
+            }
+
+            main>section:first-child {
+                height: auto !important;
+                min-height: 0 !important;
+                padding: 6rem .75rem 2rem !important;
+                overflow: visible !important;
+            }
+
+            main>section:first-child>.hero-layout {
+                height: auto !important;
+                grid-template-columns: 1fr !important;
+                gap: 0 !important;
+            }
+
+            .hero-layout>div:first-child {
+                height: auto !important;
+                padding: 1.5rem 1.25rem .5rem !important;
+                align-items: flex-start !important;
+            }
+
+            .hero-layout .hero-copy {
+                max-width: 42rem !important;
+            }
+
+            .hero-layout h1 {
+                max-width: 12ch !important;
+                font-size: clamp(2.8rem, 7.4vw, 4rem) !important;
+            }
+
+            .hero-layout>.hero-lottie {
+                width: min(100%, 34rem) !important;
+                height: 27rem !important;
+                margin: 0 auto !important;
+            }
+
+            .hero-lottie-frame {
+                width: 100% !important;
+                height: 27rem !important;
+            }
+
+            .hero-lottie-frame lottie-player {
+                transform: scale(1.35) !important;
+            }
+
+            #services,
+            #portfolio {
+                padding-left: 1.5rem !important;
+                padding-right: 1.5rem !important;
+            }
+
+            #services>div:last-child {
+                width: 100% !important;
+                grid-template-columns: 1fr !important;
+            }
+
+            #services article:nth-child(2),
+            #services article:nth-child(5) {
+                transform: none !important;
+            }
+
+            #factory>div {
+                grid-template-columns: 1fr !important;
+            }
+
+            #factory::before {
+                background: rgba(24, 34, 65, .88);
+            }
+
+            #portfolio>div:first-child+div {
+                grid-template-columns: 1fr !important;
+            }
+
+            #portfolio figure:first-child,
+            #portfolio figure:nth-child(2),
+            #portfolio figure:nth-child(3) {
+                height: 27rem !important;
+                margin: 0 !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+            header {
+                top: .5rem !important;
+                left: .5rem !important;
+                right: .5rem !important;
+                height: 4rem !important;
+            }
+
+            header nav {
+                height: 4rem !important;
+                padding: 0 1rem !important;
+            }
+
+            header nav>div {
+                gap: 1rem !important;
+                font-size: .82rem !important;
+            }
+
+            main>section:first-child {
+                padding: 5.25rem .5rem 1rem !important;
+            }
+
+            .hero-layout>div:first-child {
+                padding: 1rem 1rem .25rem !important;
+            }
+
+            .hero-layout .hero-headline {
+                max-width: 13.5ch !important;
+                font-size: clamp(2.5rem, 11.8vw, 3.35rem) !important;
+                line-height: .94 !important;
+            }
+
+            .hero-headline-accent {
+                margin-left: 0 !important;
+            }
+
+            .hero-headline-final {
+                font-size: .8em;
+            }
+
+            .hero-headline-final::after {
+                width: 2rem;
+                margin-left: .45rem;
+            }
+
+            .hero-layout .hero-copy>p:not(:first-child) {
+                font-size: .88rem !important;
+                line-height: 1.5 !important;
+            }
+
+            .hero-layout>.hero-lottie {
+                width: min(100%, 23rem) !important;
+                height: 19rem !important;
+            }
+
+            .hero-lottie-frame {
+                width: 100% !important;
+                height: 19rem !important;
+            }
+
+            .hero-lottie-frame lottie-player {
+                transform: scale(1.08) !important;
+            }
+
+            #factory {
+                padding-top: 4rem !important;
+                padding-bottom: 4rem !important;
+            }
+
+            #factory>div>div:first-child {
+                height: 24rem !important;
+                box-shadow: 14px 16px 0 var(--blue-grey);
+            }
+
+            #factory>div>div:last-child {
+                padding: 1.5rem !important;
+            }
+
+            #portfolio figure:first-child,
+            #portfolio figure:nth-child(2),
+            #portfolio figure:nth-child(3) {
+                height: 25rem !important;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: .01ms !important;
+                transition-duration: .01ms !important;
+            }
+        }
+
+        .logo-image {
+            mix-blend-mode: multiply;
+        }
+
+        /* =========================================================
+           LUXURY GLASS HEADER — SHARED ACROSS BOTH PAGES
+           ========================================================= */
+
+        header {
+            position: fixed !important;
+            top: .85rem !important;
+            left: 1rem !important;
+            right: 1rem !important;
+            z-index: 1000 !important;
+
+            height: 4.35rem !important;
+            overflow: hidden !important;
+
+            border: 1px solid rgba(255, 255, 255, .48) !important;
+            border-radius: 1.15rem !important;
+
+            /* Transparent mineral-glass surface */
+            background:
+                linear-gradient(115deg,
+                    rgba(255, 255, 255, .34) 0%,
+                    rgba(244, 247, 241, .20) 42%,
+                    rgba(208, 224, 205, .16) 100%) !important;
+
+            backdrop-filter: blur(22px) saturate(135%) !important;
+            -webkit-backdrop-filter: blur(22px) saturate(135%) !important;
+
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, .72),
+                inset 0 -1px 0 rgba(83, 108, 124, .14),
+                0 10px 25px rgba(24, 34, 65, .08),
+                0 24px 55px rgba(24, 34, 65, .10) !important;
+
+            isolation: isolate;
+        }
+
+        /* Fine reflective highlight across the glass */
+        header::before {
+            position: absolute;
+            inset: 0;
+            content: '';
+            z-index: -1;
+            pointer-events: none;
+
+            background:
+                linear-gradient(105deg,
+                    rgba(255, 255, 255, .28) 0%,
+                    rgba(255, 255, 255, .08) 22%,
+                    transparent 48%,
+                    rgba(255, 255, 255, .10) 78%,
+                    transparent 100%);
+
+            opacity: .8;
+        }
+
+        /* Very subtle inner edge */
+        header::after {
+            position: absolute;
+            inset: 1px;
+            content: '';
+            z-index: -1;
+            pointer-events: none;
+            border: 1px solid rgba(255, 255, 255, .16);
+            border-radius: 1.05rem;
+        }
+
+        header nav {
+            position: relative;
+            z-index: 2;
+            height: 4.35rem !important;
+        }
+
+        header nav>div {
+            align-items: center;
+        }
+
+        /* Navigation becomes understated and premium */
+        header nav a:not([href*="wa.me"]) {
+            position: relative;
+            color: var(--ink) !important;
+            transition:
+                color .25s ease,
+                opacity .25s ease,
+                transform .25s ease;
+        }
+
+        header nav a:not([href*="wa.me"]):hover {
+            opacity: .72;
+            transform: translateY(-1px);
+        }
+
+        /* Replace harsh nav underline with a soft glass highlight */
+        header nav a:not([href*="wa.me"])::after {
+            height: 1px !important;
+            margin-top: 4px !important;
+            background: var(--slate) !important;
+            opacity: .65;
+        }
+
+        /* Glassy WhatsApp action */
+        header nav a[href*="wa.me"] {
+            position: relative;
+            overflow: hidden;
+
+            border: 1px solid rgba(255, 255, 255, .32) !important;
+            border-radius: 999px !important;
+
+            background:
+                linear-gradient(135deg,
+                    rgba(24, 34, 65, .96),
+                    rgba(33, 60, 78, .88)) !important;
+
+            color: #F4F7F1 !important;
+
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, .20),
+                0 8px 20px rgba(24, 34, 65, .16) !important;
+
+            transition:
+                transform .3s cubic-bezier(.2, .8, .2, 1),
+                box-shadow .3s ease,
+                background .3s ease !important;
+        }
+
+        header nav a[href*="wa.me"]::before {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: -65%;
+            width: 45%;
+            content: '';
+            transform: skewX(-20deg);
+            background: linear-gradient(90deg,
+                    transparent,
+                    rgba(255, 255, 255, .22),
+                    transparent);
+            transition: left .6s ease;
+        }
+
+        header nav a[href*="wa.me"]:hover {
+            transform: translateY(-2px);
+            background:
+                linear-gradient(135deg,
+                    rgba(33, 60, 78, .98),
+                    rgba(24, 34, 65, .96)) !important;
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, .25),
+                0 12px 28px rgba(24, 34, 65, .20) !important;
+        }
+
+        header nav a[href*="wa.me"]:hover::before {
+            left: 125%;
+        }
+
+        /* Slightly more compact glass on smaller screens */
+        @media (max-width: 900px) {
+            header {
+                top: .65rem !important;
+                left: .75rem !important;
+                right: .75rem !important;
+                border-radius: 1rem !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+            header {
+                top: .5rem !important;
+                left: .5rem !important;
+                right: .5rem !important;
+                height: 4rem !important;
+                border-radius: .95rem !important;
+            }
+
+            header nav {
+                height: 4rem !important;
+            }
+        }
+
+        @supports not (backdrop-filter: blur(1px)) {
+            header {
+                background: rgba(217, 229, 215, .94) !important;
+            }
+        }
+
+        /* =========================================
+   HARISTA BRAND LOCKUP
+   ========================================= */
+
+        header a[aria-label="Harista Interiors home"]>span>span:first-child {
+            font-size: 26px !important;
+            font-weight: 800 !important;
+            letter-spacing: .18em !important;
+            line-height: 1 !important;
+        }
+
+        header a[aria-label="Harista Interiors home"]>span>span:last-child {
+            margin-top: 6px !important;
+            font-size: 15px !important;
+            font-weight: 700 !important;
+            letter-spacing: .20em !important;
+            line-height: 1 !important;
+        }
+
+        /* =========================================================
+   GOOGLE MAP — NORMAL LIGHT APPEARANCE
+   ========================================================= */
+
+.map-container iframe,
+.google-map iframe,
+iframe[src*="google.com/maps"] {
+    filter: none !important;
+    -webkit-filter: none !important;
+    opacity: 1 !important;
+    mix-blend-mode: normal !important;
+    background: #fff !important;
+    color-scheme: light !important;
+}
     </style>
 </head>
 
@@ -62,10 +1234,14 @@
     <header class="sticky top-0 z-50 border-b border-stone-200/80 bg-sand/95 backdrop-blur">
         <nav class="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-8" aria-label="Main navigation">
             <a href="#top" class="flex items-center gap-3" aria-label="Harista Interiors home">
-                <img src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/logo.jpg" alt="Harista Interiors" class="h-10 w-10 object-contain" />
-                <span class="leading-none"><span class="block text-sm font-bold tracking-[.18em]">HARISTA</span><span class="block pt-1 text-[10px] tracking-[.26em] text-oak">INTERIORS</span></span>
-            </a>
-            <div class="hidden items-center gap-7 text-sm font-medium md:flex">
+                <img src="assests/logo.png" alt="Harista Interiors" class="logo-image h-10 w-10 object-contain" />
+                <span class="leading-none">
+                    <span>
+                        <span>HARISTA</span>
+                        <span>INTERIORS</span>
+                    </span>
+                </span> </a>
+            <div class="hidden items-center gap-7 text-lg font-medium md:flex">
                 <a class="transition hover:text-oak" href="index.html#services">Services</a>
                 <a class="transition hover:text-oak" href="index.html#factory">Our Factory</a>
                 <a class="transition hover:text-oak" href="index.html#portfolio">Portfolio</a>
@@ -78,12 +1254,16 @@
 
     <main id="top">
         <section class="overflow-hidden bg-ink">
-            <div class="mx-auto grid min-h-[660px] max-w-7xl lg:grid-cols-2">
+            <div class="hero-layout mx-auto grid min-h-[660px] max-w-7xl lg:grid-cols-2">
                 <div class="relative flex items-center px-5 py-20 sm:px-8 lg:px-12 lg:py-24">
                     <div class="grain absolute inset-0 opacity-40"></div>
-                    <div class="relative max-w-xl">
-                        <p class="mb-6 flex items-center gap-3 text-xs font-bold uppercase tracking-[.22em] text-gold"><span class="h-px w-9 bg-gold"></span> Belagavi's Interior Studio</p>
-                        <h1 class="display text-5xl leading-[1.05] text-sand sm:text-6xl xl:text-7xl">10 Years of Craft. <span class="text-gold">100+ Homes</span> Transformed. Factory-Direct Luxury.</h1>
+                    <div class="hero-copy relative max-w-xl">
+                        <p class="mb-6 flex items-center gap-3 text-s font-bold uppercase tracking-[.22em] text-ink"><span class="h-px w-9 bg-ink"></span> Belagavi's Interior Studio</p>
+                        <h1 class="hero-headline display">
+                            <span class="hero-headline-line">10 Years of Craft.</span>
+                            <span class="hero-headline-line">100+ Homes Transformed.</span>
+                            <span class="hero-headline-line">Factory-Direct Luxury.</span>
+                        </h1>
                         <p class="mt-7 max-w-lg text-base leading-7 text-stone-300 sm:text-lg">Harista Interiors designs and builds bespoke modular spaces with the precision of our own factory and the care of a decade’s expertise.</p>
                         <div class="mt-9 flex flex-wrap items-center gap-5">
                             <a href="https://wa.me/919481809907" target="_blank" rel="noopener" class="rounded-full bg-gold px-6 py-3.5 font-bold text-ink transition hover:bg-[#dbb779]">Chat on WhatsApp ↗</a>
@@ -91,10 +1271,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="relative min-h-[420px] lg:min-h-full">
-                    <img class="absolute inset-0 h-full w-full object-cover" src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1400&q=85" alt="Warm, luxurious modern living room" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-ink/35 to-transparent"></div>
-                    <div class="absolute bottom-6 left-6 border border-white/30 bg-ink/70 px-5 py-4 text-sm text-white backdrop-blur"><span class="block text-xs uppercase tracking-[.18em] text-gold">Designed around you</span><span class="mt-1 block">From concept to installation</span></div>
+                <div class="hero-lottie" aria-hidden="true">
+                    <div class="hero-lottie-frame">
+                        <lottie-player src="assests/3D%20Isometric%20Living%20Room.json" loop autoplay></lottie-player>
+                    </div>
                 </div>
             </div>
         </section>
@@ -110,34 +1290,34 @@
 
         <section class="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-12 lg:py-28" id="services">
             <div class="max-w-2xl">
-                <p class="text-xs font-bold uppercase tracking-[.22em] text-oak">What we create</p>
+                <p class="text-s font-bold uppercase tracking-[.22em] text-ink">What we create</p>
                 <h2 class="display mt-3 text-4xl leading-tight sm:text-5xl">Spaces with a sense of belonging.</h2>
-                <p class="mt-5 text-lg leading-8 text-stone-600">For over a decade, our designers have shaped more than 100 homes and workspaces with careful attention to how people actually live and work.</p>
+                <p class="mt-5 text-lg leading-8 text-stone-600 text-ink">For over a decade, our designers have shaped more than 100 homes and workspaces with careful attention to how people actually live and work.</p>
             </div>
-            <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" style="width: 100% !important; margin-top: 3rem !important; grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 1.5rem !important;">
                 <article class="group min-h-64 rounded-sm bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-luxury"><span class="text-gold">01 /</span>
                     <h3 class="display mt-10 text-2xl">Modular Kitchens</h3>
-                    <p class="mt-3 leading-6 text-stone-600">Intelligent layouts, seamless storage, and finishes that work as hard as you do—tailored to the way you cook and live.</p>
+                    <p class="mt-3 leading-6 text-stone-600" style="color: #D9E5D7 !important; opacity: 1 !important;">Intelligent layouts, seamless storage, and finishes that work as hard as you do—tailored to the way you cook and live.</p>
                 </article>
-                <article class="group min-h-64 rounded-sm bg-ink p-7 text-sand transition duration-300 hover:-translate-y-1 hover:shadow-luxury"><span class="text-gold">02 /</span>
+                <article class="group min-h-64 rounded-sm bg-ink p-7 text-sand transition duration-300 hover:-translate-y-1 hover:shadow-luxury" style="transform: none !important;"><span class="text-gold">02 /</span>
                     <h3 class="display mt-10 text-2xl">Home Interiors</h3>
-                    <p class="mt-3 leading-6 text-stone-300">Complete residential spaces designed for modern living: calm, functional, and unmistakably yours.</p>
+                    <p class="mt-3 leading-6 text-stone-300" style="color: #D9E5D7 !important; opacity: 1 !important;">Complete residential spaces designed for modern living: calm, functional, and unmistakably yours.</p>
                 </article>
                 <article class="group min-h-64 rounded-sm bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-luxury"><span class="text-gold">03 /</span>
                     <h3 class="display mt-10 text-2xl">Office &amp; Commercial</h3>
-                    <p class="mt-3 leading-6 text-stone-600">Productive, polished environments that reflect your brand and support the way your team works.</p>
+                    <p class="mt-3 leading-6 text-stone-600" style="color: #D9E5D7 !important; opacity: 1 !important;">Productive, polished environments that reflect your brand and support the way your team works.</p>
                 </article>
                 <article class="group min-h-64 rounded-sm bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-luxury"><span class="text-gold">04 /</span>
                     <h3 class="display mt-10 text-2xl">Wardrobes</h3>
-                    <p class="mt-3 leading-6 text-stone-600">Floor-to-ceiling storage solutions engineered for maximum capacity and effortless daily use.</p>
+                    <p class="mt-3 leading-6 text-stone-600" style="color: #D9E5D7 !important; opacity: 1 !important;">Floor-to-ceiling storage solutions engineered for maximum capacity and effortless daily use.</p>
                 </article>
-                <article class="group min-h-64 rounded-sm bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-luxury"><span class="text-gold">05 /</span>
+                <article class="group min-h-64 rounded-sm bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-luxury" style="transform: none !important;"><span class="text-gold">05 /</span>
                     <h3 class="display mt-10 text-2xl">Beds</h3>
-                    <p class="mt-3 leading-6 text-stone-600">Custom bed designs that balance comfort, scale, and quiet luxury—built in our factory to your exact specifications.</p>
+                    <p class="mt-3 leading-6 text-stone-600" style="color: #D9E5D7 !important; opacity: 1 !important;">Custom bed designs that balance comfort, scale, and quiet luxury—built in our factory to your exact specifications.</p>
                 </article>
                 <article class="group min-h-64 rounded-sm bg-[#d7c4a9] p-7 transition duration-300 hover:-translate-y-1 hover:shadow-luxury"><span class="text-oak">06 /</span>
                     <h3 class="display mt-10 text-2xl">TV Units</h3>
-                    <p class="mt-3 leading-6 text-stone-700">Sleek media walls and entertainment centres that organise technology while elevating the room.</p>
+                    <p class="mt-3 leading-6 text-stone-700" style="color: #D9E5D7 !important; opacity: 1 !important;">Sleek media walls and entertainment centres that organise technology while elevating the room.</p>
                 </article>
             </div>
         </section>
@@ -233,6 +1413,22 @@
             <div class="mt-16 flex flex-wrap justify-between gap-4 border-t border-stone-700 pt-6 text-sm text-stone-400"><span>© 2026 Harista Interiors. Crafted in Belagavi.</span><a class="hover:text-gold" href="https://wa.me/919481809907" target="_blank" rel="noopener">WhatsApp: 9481809907</a><a class="hover:text-gold" href="https://instagram.com/haristainteriors" target="_blank" rel="noopener">@haristainteriors</a></div>
         </div>
     </footer>
+    <script>
+        document.querySelectorAll('#services article, #portfolio figure').forEach(function(card) {
+            card.addEventListener('pointermove', function(event) {
+                if (event.pointerType === 'touch') return;
+                const rect = card.getBoundingClientRect();
+                const x = (event.clientX - rect.left) / rect.width - .5;
+                const y = (event.clientY - rect.top) / rect.height - .5;
+                card.style.setProperty('--ry', (x * 5).toFixed(2) + 'deg');
+                card.style.setProperty('--rx', (-y * 5).toFixed(2) + 'deg');
+            });
+            card.addEventListener('pointerleave', function() {
+                card.style.setProperty('--ry', '0deg');
+                card.style.setProperty('--rx', '0deg');
+            });
+        });
+    </script>
 </body>
 
 </html>

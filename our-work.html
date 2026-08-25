@@ -13,11 +13,11 @@
             theme: {
                 extend: {
                     colors: {
-                        ink: '#22231f',
-                        sand: '#f7f3ec',
-                        oat: '#e6dccb',
-                        oak: '#9c6d3e',
-                        gold: '#c69a5b'
+                        ink: '#182241',
+                        sand: '#D0E0CD',
+                        oat: '#7B949C',
+                        oak: '#536C7C',
+                        gold: '#D0E0CD'
                     },
                     fontFamily: {
                         sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif']
@@ -33,15 +33,28 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/logo.jpg">
 
     <style>
+        :root {
+            --void: #10120f;
+            --night: #171914;
+            --paper: #f7f3ec;
+            --line: rgba(247, 243, 236, .14);
+            --lime: #d7ff63;
+            --gold-glow: #d9a960;
+        }
+
         html {
             scroll-behavior: smooth;
         }
 
         body {
             font-family: 'DM Sans', sans-serif;
+            overflow-x: hidden;
+            background: var(--void) !important;
+            color: var(--paper);
         }
 
         .display {
@@ -50,8 +63,9 @@
 
         /* Tab active state */
         .tab-btn.active {
-            background-color: #22231f !important;
-            color: #f7f3ec !important;
+            background: linear-gradient(135deg, #d7ff63, #c9ee60) !important;
+            color: #10120f !important;
+            box-shadow: 0 0 0 1px rgba(215, 255, 99, .45), 0 0 30px rgba(215, 255, 99, .18) !important;
         }
 
         /* Gallery panels - controlled by JS */
@@ -62,7 +76,855 @@
         .gallery-panel.active {
             display: grid;
         }
-    </style>
+
+        body::before {
+            position: fixed;
+            z-index: -1;
+            top: 14vh;
+            right: -19vw;
+            width: 44vw;
+            height: 44vw;
+            content: '';
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(215,255,99,.13), transparent 68%);
+            filter: blur(2px);
+            animation: orbit 18s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+
+        header {
+            position: fixed !important;
+            top: 1rem !important;
+            right: 1rem;
+            left: 1rem;
+            width: auto;
+            border: 1px solid rgba(247,243,236,.13) !important;
+            border-radius: 1.25rem;
+            background: rgba(16,18,15,.68) !important;
+            box-shadow: 0 14px 45px rgba(0,0,0,.2);
+        }
+
+        header nav { height: 4.5rem !important; max-width: none !important; }
+        header nav a:not([href*="wa.me"]) { color: var(--paper); }
+        header nav a:not([href*="wa.me"])::after { display: block; width: 0; height: 1px; margin-top: 3px; content: ''; background: var(--lime); transition: width .3s ease; }
+        header nav a:not([href*="wa.me"]):hover::after { width: 100%; }
+        header nav a[href*="wa.me"] { background: var(--lime) !important; color: var(--void) !important; box-shadow: 0 0 28px rgba(215,255,99,.18); }
+
+        main { padding-top: 5.5rem; }
+
+        main > section:first-child {
+            position: relative;
+            min-height: 29rem;
+            padding: 3.25rem 1rem 3.25rem;
+            overflow: hidden;
+            background: linear-gradient(122deg, #10120f 0%, #1d2019 62%, #645033 160%) !important;
+        }
+
+        main > section:first-child::before,
+        main > section:first-child::after {
+            position: absolute;
+            content: '';
+            pointer-events: none;
+        }
+
+        main > section:first-child::before {
+            top: 1.5rem;
+            right: 7vw;
+            width: min(58vw, 58rem);
+            height: 21rem;
+            border: 1px solid rgba(247,243,236,.18);
+            border-radius: 9rem 1.5rem 9rem 1.5rem;
+            transform: rotate(-5deg);
+        }
+
+        main > section:first-child::after {
+            right: 14vw;
+            bottom: -8rem;
+            width: 13rem;
+            height: 13rem;
+            border: 1px solid rgba(215,255,99,.45);
+            border-radius: 50%;
+            box-shadow: 0 0 80px rgba(215,255,99,.12), inset 0 0 50px rgba(215,255,99,.10);
+        }
+
+        main > section:first-child > div {
+            position: relative;
+            z-index: 1;
+            max-width: 82rem !important;
+            padding: clamp(2rem, 4vw, 4rem) !important;
+            border: 1px solid var(--line);
+            border-radius: 1.5rem;
+            background: linear-gradient(110deg, rgba(247,243,236,.07), rgba(247,243,236,.018));
+            box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 30px 75px rgba(0,0,0,.25);
+            backdrop-filter: blur(14px);
+        }
+
+        main > section:first-child p:first-child { color: var(--lime) !important; }
+        main > section:first-child h1 {
+            max-width: 8ch;
+            font-size: clamp(3.25rem, 6.2vw, 6rem) !important;
+            letter-spacing: -.06em;
+            line-height: .9 !important;
+        }
+        main > section:first-child p:last-child {
+            max-width: 31rem;
+            line-height: 1.6;
+            font-size: .98rem;
+        }
+
+        main > section:nth-child(2) {
+            display: grid;
+            grid-template-columns: 15rem minmax(0, 1fr);
+            max-width: 92rem !important;
+            min-height: 54rem;
+            padding: 5rem clamp(1.25rem, 4vw, 4rem) 8rem !important;
+            gap: clamp(2rem, 5vw, 6rem);
+        }
+
+        #tabs {
+            position: sticky;
+            top: 7.8rem;
+            align-self: start;
+            display: grid !important;
+            gap: .65rem !important;
+            margin: 0 !important;
+            padding: .7rem;
+            border: 1px solid var(--line);
+            border-radius: 1.25rem;
+            background: rgba(247,243,236,.045);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+            backdrop-filter: blur(16px);
+        }
+
+        .tab-btn {
+            position: relative;
+            width: 100%;
+            padding: .85rem 1rem !important;
+            overflow: hidden;
+            border: 1px solid rgba(247,243,236,.09);
+            border-radius: .8rem !important;
+            background: rgba(247,243,236,.05) !important;
+            color: #e4e0d9;
+            text-align: left;
+            transition: transform .25s ease, background .25s ease, box-shadow .25s ease !important;
+        }
+
+        .tab-btn:hover { transform: translateX(5px); background: rgba(247,243,236,.12) !important; }
+        .tab-btn.active:hover { background: var(--lime) !important; }
+
+        /*
+         * Gap-free editorial bento gallery.
+         *
+         * Desktop uses a 6-column grid so every row is completely occupied:
+         *   Row 1 = 4 + 2
+         *   Row 2 = 2 + 2 + 2
+         *   Row 3 = 2 + 4
+         *
+         * Unlike the previous dense 3-column layout, this never creates an
+         * accidental empty slot in the middle of a row.
+         */
+        .gallery-panel.active {
+            display: grid !important;
+            grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+            grid-auto-rows: minmax(11rem, 13rem);
+            grid-auto-flow: row;
+            gap: clamp(.85rem, 1.5vw, 1.25rem) !important;
+            align-items: stretch;
+            align-content: start;
+            animation: panel-in .55s cubic-bezier(.2,.8,.2,1) both;
+        }
+
+        .gallery-panel figure {
+            min-width: 0;
+            min-height: 0;
+            height: auto;
+            grid-row: span 2;
+            border: 1px solid rgba(247,243,236,.16);
+            border-radius: 1.1rem !important;
+            background: #1a1d16;
+            box-shadow: 0 18px 40px rgba(0,0,0,.22);
+            transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+            transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease !important;
+        }
+
+        .gallery-panel figure::after {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            content: '';
+            border-radius: inherit;
+            background: linear-gradient(135deg, rgba(255,255,255,.18), transparent 28%, transparent 74%, rgba(215,255,99,.14));
+            opacity: 0;
+            transition: opacity .35s ease;
+            pointer-events: none;
+        }
+
+        .gallery-panel figure:hover {
+            z-index: 3;
+            border-color: rgba(215,255,99,.65);
+            box-shadow: 0 26px 65px rgba(0,0,0,.4), 0 0 35px rgba(215,255,99,.10);
+        }
+
+        .gallery-panel figure:hover::after { opacity: 1; }
+        .gallery-panel figure img { transition: transform .7s cubic-bezier(.2,.8,.2,1) !important; }
+        .gallery-panel figure:hover img { transform: scale(1.09); }
+        .gallery-panel figcaption { z-index: 3; background: linear-gradient(to top, rgba(16,18,15,.65), transparent) !important; }
+
+        /* Gap-free 4+2 / 2+2+2 / 2+4 rhythm. */
+        .gallery-panel figure:nth-child(6n + 1) { grid-column: span 4; }
+        .gallery-panel figure:nth-child(6n + 2) { grid-column: span 2; }
+
+        .gallery-panel figure:nth-child(6n + 3),
+        .gallery-panel figure:nth-child(6n + 4),
+        .gallery-panel figure:nth-child(6n + 5),
+        .gallery-panel figure:nth-child(6n) {
+            grid-column: span 2;
+        }
+
+        .gallery-panel figure:nth-child(6n + 7) { grid-column: span 4; }
+
+        .gallery-panel figure:nth-child(6n + 1) img,
+        .gallery-panel figure:nth-child(6n + 7) img {
+            object-position: center;
+        }
+
+        main > section:nth-child(3) {
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            background: #1b1e17 !important;
+        }
+
+        main > section:nth-child(3)::before { position: absolute; top: -12rem; left: 5vw; width: 30rem; height: 30rem; content: ''; border-radius: 50%; background: radial-gradient(circle, rgba(215,255,99,.14), transparent 65%); }
+        main > section:nth-child(3) > div { position: relative; z-index: 1; padding: 5rem 1.5rem !important; border: 1px solid var(--line); border-radius: 1.5rem; background: rgba(247,243,236,.04); backdrop-filter: blur(14px); }
+        main > section:nth-child(3) h2 { color: var(--paper); letter-spacing: -.045em; }
+        main > section:nth-child(3) p { color: #cbc8c0 !important; }
+        main > section:nth-child(3) a { background: var(--lime) !important; color: var(--void) !important; box-shadow: 0 0 28px rgba(215,255,99,.18); }
+
+
+        footer { position: relative; overflow: hidden; border-top: 1px solid var(--line); background: var(--void) !important; }
+        footer::before { position: absolute; right: -12rem; bottom: -18rem; width: 38rem; height: 38rem; content: ''; border: 1px solid rgba(215,255,99,.18); border-radius: 50%; box-shadow: inset 0 0 80px rgba(215,255,99,.06); }
+        footer > div { position: relative; z-index: 1; max-width: 92rem !important; }
+
+        @keyframes panel-in { from { opacity: 0; transform: translateY(1.25rem); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes orbit { to { transform: translate(-8vw, 7vh) scale(1.15); } }
+
+        @media (max-width: 800px) {
+            main > section:first-child {
+                min-height: auto;
+                padding: 2.5rem .75rem 3rem;
+            }
+            main > section:first-child h1 {
+                font-size: clamp(3rem, 12vw, 5rem) !important;
+            }
+            main > section:nth-child(2) { display: block; padding: 3.5rem 1rem 5rem !important; }
+            #tabs { position: relative; top: auto; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-bottom: 2.25rem !important; }
+            .gallery-panel.active {
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+                grid-auto-rows: minmax(13rem, 18rem);
+                gap: .9rem !important;
+            }
+
+            .gallery-panel figure:nth-child(n) {
+                grid-column: span 1 !important;
+                grid-row: span 2;
+                min-height: 0;
+            }
+        }
+
+
+        @media (max-width: 540px) {
+            header { top: .5rem !important; right: .5rem; left: .5rem; }
+            header nav { padding: 0 1rem !important; }
+            main { padding-top: 5rem; }
+            main > section:first-child > div {
+                padding: 1.75rem !important;
+            }
+            #tabs { grid-template-columns: 1fr; }
+            .gallery-panel.active {
+                grid-template-columns: 1fr !important;
+                grid-auto-rows: minmax(16rem, 22rem);
+                gap: .8rem !important;
+            }
+
+            .gallery-panel figure:nth-child(n) {
+                grid-column: span 1 !important;
+                grid-row: span 1 !important;
+                min-height: 0;
+                transform: none;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+        }
+
+        /* Exact five-colour theme override */
+        :root {
+            --void: #182241;
+            --night: #213C4E;
+            --paper: #D0E0CD;
+            --line: rgba(123, 148, 156, .42);
+            --lime: #D0E0CD;
+            --gold-glow: #7B949C;
+        }
+
+        body { background: #D9E5D7 !important; color: #182241; }
+        body::before { background: radial-gradient(circle, rgba(123,148,156,.24), transparent 68%); }
+        header { border-color: rgba(83,108,124,.42) !important; background: rgba(217,229,215,.82) !important; }
+        header nav a:not([href*="wa.me"]) { color: #182241; }
+        header nav a:not([href*="wa.me"])::after { background: #536C7C; }
+        header nav a[href*="wa.me"] { background: #182241 !important; color: #D9E5D7 !important; box-shadow: 0 0 28px rgba(83,108,124,.20); }
+        main > section:first-child { background: linear-gradient(122deg, #D9E5D7 0%, #D0E0CD 58%, #7B949C 160%) !important; }
+        main > section:first-child::before { border-color: rgba(208,224,205,.24); }
+        main > section:first-child::after { border-color: rgba(208,224,205,.48); box-shadow: 0 0 80px rgba(208,224,205,.10), inset 0 0 50px rgba(208,224,205,.08); }
+        main > section:first-child > div { border-color: rgba(83,108,124,.45); background: linear-gradient(110deg, rgba(217,229,215,.48), rgba(208,224,205,.34)); }
+        main > section:first-child p:first-child { color: #536C7C !important; }
+        main > section:first-child h1 { color: #182241; }
+        #tabs { border-color: rgba(83,108,124,.45); background: rgba(208,224,205,.55); }
+        .tab-btn { border-color: rgba(123,148,156,.42); background: rgba(83,108,124,.25) !important; color: #182241; }
+        .tab-btn:hover { background: #536C7C !important; }
+        .tab-btn.active, .tab-btn.active:hover { background: #D0E0CD !important; color: #182241 !important; box-shadow: 0 0 0 1px rgba(208,224,205,.45), 0 0 30px rgba(208,224,205,.15) !important; }
+        .gallery-panel figure { border-color: rgba(123,148,156,.54); background: #213C4E; box-shadow: 0 18px 40px rgba(24,34,65,.35); }
+        .gallery-panel figure::after { background: linear-gradient(135deg, rgba(208,224,205,.20), transparent 28%, transparent 74%, rgba(123,148,156,.20)); }
+        .gallery-panel figure:hover { border-color: #D0E0CD; box-shadow: 0 26px 65px rgba(24,34,65,.5), 0 0 35px rgba(208,224,205,.10); }
+        .gallery-panel figcaption { background: linear-gradient(to top, rgba(24,34,65,.78), transparent) !important; }
+        main > section:nth-child(3) { border-color: rgba(83,108,124,.42); background: #D0E0CD !important; }
+        main > section:nth-child(3)::before { background: radial-gradient(circle, rgba(123,148,156,.18), transparent 65%); }
+        main > section:nth-child(3) > div { border-color: rgba(83,108,124,.45); background: rgba(217,229,215,.62); }
+        main > section:nth-child(3) h2 { color: #182241; }
+        main > section:nth-child(3) p { color: #536C7C !important; }
+        main > section:nth-child(3) a { background: #182241 !important; color: #D9E5D7 !important; box-shadow: 0 0 28px rgba(83,108,124,.18); }
+        footer { border-color: rgba(123,148,156,.42); background: #182241 !important; }
+        footer::before { border-color: rgba(208,224,205,.22); box-shadow: inset 0 0 80px rgba(208,224,205,.06); }
+        [class*="text-stone-"] { color: #7B949C !important; }
+        [class*="text-white"] { color: #D0E0CD !important; }
+        [class*="border-stone-"], [class*="border-white"] { border-color: #536C7C !important; }
+        [class*="from-black"] { --tw-gradient-from: #182241 var(--tw-gradient-from-position) !important; }
+
+        .our-work-hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(13rem, .42fr);
+            align-items: center;
+            gap: clamp(1rem, 4vw, 4rem);
+        }
+
+        /*
+         * Refined hero animation:
+         * - Removes the "boxed" card treatment around the Lottie.
+         * - Makes the animation larger and visually integrated with the hero.
+         * - Adds a soft ambient glow behind it instead of a hard border.
+         * - Lets the illustration breathe into the surrounding space.
+         */
+        .our-work-lottie {
+            position: relative;
+            width: min(100%, 22rem);
+            height: 17rem;
+            justify-self: end;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 0;
+            border-radius: 0;
+            background: transparent;
+            box-shadow: none;
+            isolation: isolate;
+        }
+
+        .our-work-lottie::before {
+            position: absolute;
+            inset: 8% -4% 4% 4%;
+            content: '';
+            z-index: -1;
+            border-radius: 50%;
+            background:
+                radial-gradient(
+                    circle at 52% 48%,
+                    rgba(123,148,156,.22) 0%,
+                    rgba(208,224,205,.18) 30%,
+                    rgba(208,224,205,.08) 52%,
+                    transparent 74%
+                );
+            filter: blur(18px);
+            transform: scale(1.08);
+            animation: lottie-glow 6s ease-in-out infinite alternate;
+        }
+
+        .our-work-lottie::after {
+            position: absolute;
+            right: 8%;
+            bottom: 7%;
+            left: 8%;
+            height: 16%;
+            content: '';
+            z-index: -1;
+            border-radius: 50%;
+            background: rgba(24,34,65,.10);
+            filter: blur(18px);
+            transform: scaleX(.82);
+            animation: lottie-shadow 5s ease-in-out infinite alternate;
+        }
+
+        .our-work-lottie lottie-player {
+            display: block;
+            width: 112%;
+            height: 112%;
+            max-width: 25rem;
+            max-height: 20rem;
+            transform: translateY(-1%);
+            filter: drop-shadow(0 18px 28px rgba(24,34,65,.10));
+            transition: transform .5s cubic-bezier(.2,.8,.2,1), filter .5s ease;
+        }
+
+        .our-work-lottie:hover lottie-player {
+            transform: translateY(-2%) scale(1.025);
+            filter: drop-shadow(0 22px 34px rgba(24,34,65,.13));
+        }
+
+        @keyframes lottie-glow {
+            from { opacity: .72; transform: scale(1.02); }
+            to { opacity: 1; transform: scale(1.13); }
+        }
+
+        @keyframes lottie-shadow {
+            from { opacity: .55; transform: scaleX(.76); }
+            to { opacity: .85; transform: scaleX(.9); }
+        }
+
+        @media (max-width: 800px) {
+            .our-work-lottie {
+                width: min(100%, 21rem);
+                height: 16rem;
+                justify-self: center;
+            }
+
+            .our-work-lottie lottie-player {
+                width: 112%;
+                height: 112%;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .our-work-hero { grid-template-columns: 1fr; }
+
+            .our-work-lottie {
+                width: min(100%, 18rem);
+                height: 14rem;
+                justify-self: center;
+                margin-top: .5rem;
+            }
+
+            .our-work-lottie lottie-player {
+                width: 110%;
+                height: 110%;
+            }
+        }
+    
+        /*
+         * FINAL GALLERY LAYOUT FIX
+         * ------------------------
+         * Do not use column/row spans here. The previous bento span rules
+         * were the source of the empty middle spaces.
+         *
+         * Every image gets exactly ONE grid cell.
+         * 3 columns => cards are always packed:
+         *   1  2  3
+         *   4  5  6
+         *   7  8  9
+         *
+         * This also overrides Tailwind's aspect/height interaction so every
+         * card has a predictable size.
+         */
+        .gallery-panel.active {
+            display: grid !important;
+            grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+            grid-auto-flow: row !important;
+            grid-auto-rows: auto !important;
+            gap: clamp(.85rem, 1.5vw, 1.25rem) !important;
+            align-items: stretch !important;
+            align-content: start !important;
+        }
+
+        .gallery-panel.active figure,
+        .gallery-panel.active figure:nth-child(n) {
+            grid-column: auto !important;
+            grid-row: auto !important;
+            width: 100% !important;
+            height: auto !important;
+            min-height: 0 !important;
+            aspect-ratio: 4 / 5 !important;
+        }
+
+        .gallery-panel.active figure img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media (max-width: 800px) {
+            .gallery-panel.active {
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+                gap: .9rem !important;
+            }
+
+            .gallery-panel.active figure,
+            .gallery-panel.active figure:nth-child(n) {
+                grid-column: auto !important;
+                grid-row: auto !important;
+                aspect-ratio: 4 / 5 !important;
+            }
+        }
+
+        @media (max-width: 540px) {
+            .gallery-panel.active {
+                grid-template-columns: 1fr !important;
+                gap: .8rem !important;
+            }
+
+            .gallery-panel.active figure,
+            .gallery-panel.active figure:nth-child(n) {
+                grid-column: auto !important;
+                grid-row: auto !important;
+                aspect-ratio: 4 / 5 !important;
+                transform: none;
+            }
+        }
+        .logo-image {
+            mix-blend-mode: multiply;
+        }
+
+
+        /* =========================================================
+           LUXURY GLASS HEADER — SHARED ACROSS BOTH PAGES
+           ========================================================= */
+
+        header {
+            position: fixed !important;
+            top: .85rem !important;
+            left: 1rem !important;
+            right: 1rem !important;
+            z-index: 1000 !important;
+
+            height: 4.35rem !important;
+            overflow: hidden !important;
+
+            border: 1px solid rgba(255, 255, 255, .48) !important;
+            border-radius: 1.15rem !important;
+
+            /* Transparent mineral-glass surface */
+            background:
+                linear-gradient(
+                    115deg,
+                    rgba(255, 255, 255, .34) 0%,
+                    rgba(244, 247, 241, .20) 42%,
+                    rgba(208, 224, 205, .16) 100%
+                ) !important;
+
+            backdrop-filter: blur(22px) saturate(135%) !important;
+            -webkit-backdrop-filter: blur(22px) saturate(135%) !important;
+
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, .72),
+                inset 0 -1px 0 rgba(83, 108, 124, .14),
+                0 10px 25px rgba(24, 34, 65, .08),
+                0 24px 55px rgba(24, 34, 65, .10) !important;
+
+            isolation: isolate;
+        }
+
+        /* Fine reflective highlight across the glass */
+        header::before {
+            position: absolute;
+            inset: 0;
+            content: '';
+            z-index: -1;
+            pointer-events: none;
+
+            background:
+                linear-gradient(
+                    105deg,
+                    rgba(255,255,255,.28) 0%,
+                    rgba(255,255,255,.08) 22%,
+                    transparent 48%,
+                    rgba(255,255,255,.10) 78%,
+                    transparent 100%
+                );
+
+            opacity: .8;
+        }
+
+        /* Very subtle inner edge */
+        header::after {
+            position: absolute;
+            inset: 1px;
+            content: '';
+            z-index: -1;
+            pointer-events: none;
+            border: 1px solid rgba(255,255,255,.16);
+            border-radius: 1.05rem;
+        }
+
+        header nav {
+            position: relative;
+            z-index: 2;
+            height: 4.35rem !important;
+        }
+
+        header nav > div {
+            align-items: center;
+        }
+
+        /* Navigation becomes understated and premium */
+        header nav a:not([href*="wa.me"]) {
+            position: relative;
+            color: var(--ink) !important;
+            transition:
+                color .25s ease,
+                opacity .25s ease,
+                transform .25s ease;
+        }
+
+        header nav a:not([href*="wa.me"]):hover {
+            opacity: .72;
+            transform: translateY(-1px);
+        }
+
+        /* Replace harsh nav underline with a soft glass highlight */
+        header nav a:not([href*="wa.me"])::after {
+            height: 1px !important;
+            margin-top: 4px !important;
+            background: var(--slate) !important;
+            opacity: .65;
+        }
+
+        /* Glassy WhatsApp action */
+        header nav a[href*="wa.me"] {
+            position: relative;
+            overflow: hidden;
+
+            border: 1px solid rgba(255,255,255,.32) !important;
+            border-radius: 999px !important;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(24,34,65,.96),
+                    rgba(33,60,78,.88)
+                ) !important;
+
+            color: #F4F7F1 !important;
+
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,.20),
+                0 8px 20px rgba(24,34,65,.16) !important;
+
+            transition:
+                transform .3s cubic-bezier(.2,.8,.2,1),
+                box-shadow .3s ease,
+                background .3s ease !important;
+        }
+
+        header nav a[href*="wa.me"]::before {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: -65%;
+            width: 45%;
+            content: '';
+            transform: skewX(-20deg);
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255,255,255,.22),
+                transparent
+            );
+            transition: left .6s ease;
+        }
+
+        header nav a[href*="wa.me"]:hover {
+            transform: translateY(-2px);
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(33,60,78,.98),
+                    rgba(24,34,65,.96)
+                ) !important;
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,.25),
+                0 12px 28px rgba(24,34,65,.20) !important;
+        }
+
+        header nav a[href*="wa.me"]:hover::before {
+            left: 125%;
+        }
+
+        /* Slightly more compact glass on smaller screens */
+        @media (max-width: 900px) {
+            header {
+                top: .65rem !important;
+                left: .75rem !important;
+                right: .75rem !important;
+                border-radius: 1rem !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+            header {
+                top: .5rem !important;
+                left: .5rem !important;
+                right: .5rem !important;
+                height: 4rem !important;
+                border-radius: .95rem !important;
+            }
+
+            header nav {
+                height: 4rem !important;
+            }
+        }
+
+        @supports not (backdrop-filter: blur(1px)) {
+            header {
+                background: rgba(217, 229, 215, .94) !important;
+            }
+        }
+
+
+        /* =========================================================
+           FINAL LIGHTBOX
+           - Above the fixed glass header
+           - No card/border around the photograph
+           - Photograph stays centered in the viewport
+           ========================================================= */
+
+        #lightbox {
+            position: fixed !important;
+            inset: 0 !important;
+            z-index: 2147483647 !important;
+
+            align-items: center !important;
+            justify-content: center !important;
+
+            padding: 1.25rem !important;
+
+            background: rgba(235, 238, 235, 0.72) !important;
+            backdrop-filter: blur(12px) saturate(110%) !important;
+            -webkit-backdrop-filter: blur(12px) saturate(110%) !important;
+        }
+
+        /* Remove the unwanted glass/card wrapper */
+        #lightbox > div {
+            position: relative !important;
+
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+
+            width: auto !important;
+            height: auto !important;
+            max-width: 92vw !important;
+            max-height: 90vh !important;
+
+            margin: 0 !important;
+            padding: 0 !important;
+
+            border: 0 !important;
+            border-radius: 0 !important;
+
+            background: transparent !important;
+            box-shadow: none !important;
+
+            overflow: visible !important;
+        }
+
+        /* The actual photograph */
+        #lightbox-img {
+            display: block !important;
+
+            width: auto !important;
+            height: auto !important;
+
+            max-width: 90vw !important;
+            max-height: 88vh !important;
+
+            margin: 0 !important;
+            padding: 0 !important;
+
+            object-fit: contain !important;
+
+            border: 0 !important;
+            border-radius: 12px !important;
+
+            background: transparent !important;
+            box-shadow: 0 22px 60px rgba(24, 34, 65, 0.24) !important;
+        }
+
+        /* Close button always stays above the image */
+        #close-lightbox {
+            position: fixed !important;
+            top: 1rem !important;
+            right: 1.25rem !important;
+
+            z-index: 2147483647 !important;
+
+            width: 42px !important;
+            height: 42px !important;
+
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+
+            margin: 0 !important;
+            padding: 0 !important;
+
+            border: 1px solid rgba(83, 108, 124, .25) !important;
+            border-radius: 999px !important;
+
+            background: rgba(255, 255, 255, .62) !important;
+            color: #182241 !important;
+
+            font-size: 1.5rem !important;
+            line-height: 1 !important;
+
+            box-shadow: 0 8px 24px rgba(24, 34, 65, .14) !important;
+
+            backdrop-filter: blur(10px) !important;
+            -webkit-backdrop-filter: blur(10px) !important;
+
+            cursor: pointer !important;
+        }
+
+        #close-lightbox:hover {
+            background: rgba(255, 255, 255, .86) !important;
+            transform: scale(1.04);
+        }
+
+        @media (max-width: 640px) {
+            #lightbox {
+                padding: .75rem !important;
+            }
+
+            #lightbox > div {
+                max-width: 96vw !important;
+                max-height: 88vh !important;
+            }
+
+            #lightbox-img {
+                max-width: 94vw !important;
+                max-height: 84vh !important;
+                border-radius: 10px !important;
+            }
+
+            #close-lightbox {
+                top: .75rem !important;
+                right: .75rem !important;
+                width: 38px !important;
+                height: 38px !important;
+            }
+        }
+
+</style>
 </head>
 
 <body class="bg-sand text-ink antialiased">
@@ -71,7 +933,7 @@
     <header class="sticky top-0 z-50 border-b border-stone-200/80 bg-sand/95 backdrop-blur">
         <nav class="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-8" aria-label="Main navigation">
             <a href="index.html" class="flex items-center gap-3" aria-label="Harista Interiors home">
-                <img src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/logo.jpg" alt="Harista Interiors" class="h-10 w-10 object-contain" />
+                <img src="assests/logo.png" alt="Harista Interiors" class="logo-image h-10 w-10 object-contain" />
                 <span class="leading-none">
                     <span class="block text-sm font-bold tracking-[.18em]">HARISTA</span>
                     <span class="block pt-1 text-[10px] tracking-[.26em] text-oak">INTERIORS</span>
@@ -95,14 +957,19 @@
     <main>
         <!-- Page Header -->
         <section class="bg-ink text-sand">
-            <div class="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12 lg:py-20">
-                <p class="text-xs font-bold uppercase tracking-[.22em] text-gold">Portfolio</p>
-                <h1 class="display mt-3 text-4xl leading-tight sm:text-5xl lg:text-6xl">
-                    Our Work
-                </h1>
-                <p class="mt-5 max-w-2xl text-lg text-stone-300">
-                    A selection of spaces we’ve designed and built — from modular kitchens to complete home interiors.
-                </p>
+            <div class="our-work-hero mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12 lg:py-20">
+                <div class="our-work-copy">
+                    <p class="text-xs font-bold uppercase tracking-[.22em] text-gold">Portfolio</p>
+                    <h1 class="display mt-3 text-4xl leading-tight sm:text-5xl lg:text-6xl">
+                        Our Work
+                    </h1>
+                    <p class="mt-5 max-w-2xl text-lg text-stone-300">
+                        A selection of spaces we’ve designed and built — from modular kitchens to complete home interiors.
+                    </p>
+                </div>
+                <div class="our-work-lottie" aria-hidden="true">
+                    <lottie-player src="assests/Home.json" loop autoplay></lottie-player>
+                </div>
             </div>
         </section>
 
@@ -348,10 +1215,22 @@
     </main>
 
     <!-- Lightbox Modal -->
-    <div id="lightbox" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-sm flex items-center justify-center p-4">
-        <button id="close-lightbox" class="absolute top-5 right-5 text-white text-3xl font-bold hover:text-gold transition cursor-pointer z-50">&times;</button>
-        <div class="relative max-w-5xl max-h-[90vh] flex items-center justify-center">
-            <img id="lightbox-img" class="max-h-[85vh] max-w-full object-contain rounded shadow-2xl" src="" alt="Expanded portfolio image">
+    <div id="lightbox"
+         class="fixed inset-0 z-[2147483647] hidden flex items-center justify-center"
+         aria-hidden="true">
+
+        <button
+            id="close-lightbox"
+            type="button"
+            aria-label="Close image"
+        >&times;</button>
+
+        <div>
+            <img
+                id="lightbox-img"
+                src=""
+                alt="Expanded portfolio image"
+            >
         </div>
     </div>
 
@@ -411,6 +1290,21 @@
                     lightboxImg.alt = this.alt;
                     lightbox.classList.remove('hidden');
                     document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                });
+            });
+
+            document.querySelectorAll('.gallery-panel figure').forEach(card => {
+                card.addEventListener('pointermove', function(event) {
+                    if (event.pointerType === 'touch') return;
+                    const rect = card.getBoundingClientRect();
+                    const x = (event.clientX - rect.left) / rect.width - .5;
+                    const y = (event.clientY - rect.top) / rect.height - .5;
+                    card.style.setProperty('--ry', (x * 4.5).toFixed(2) + 'deg');
+                    card.style.setProperty('--rx', (-y * 4.5).toFixed(2) + 'deg');
+                });
+                card.addEventListener('pointerleave', function() {
+                    card.style.setProperty('--ry', '0deg');
+                    card.style.setProperty('--rx', '0deg');
                 });
             });
 
