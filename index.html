@@ -1563,6 +1563,51 @@
             }
         }
 
+
+        /* =========================================================
+           SERVICES MOBILE CARD FIX
+           The cards under "Spaces with a sense of belonging."
+           must become a single readable column on phones.
+           ========================================================= */
+        @media (max-width: 900px) {
+            #services > div:last-child {
+                display: grid !important;
+                grid-template-columns: minmax(0, 1fr) !important;
+                grid-auto-flow: row !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                gap: 1rem !important;
+            }
+
+            #services > div:last-child > article,
+            #services > div:last-child > article:nth-child(1),
+            #services > div:last-child > article:nth-child(2),
+            #services > div:last-child > article:nth-child(3),
+            #services > div:last-child > article:nth-child(4),
+            #services > div:last-child > article:nth-child(5),
+            #services > div:last-child > article:nth-child(6) {
+                grid-column: 1 / -1 !important;
+                grid-row: auto !important;
+                width: 100% !important;
+                min-width: 0 !important;
+                min-height: 17rem !important;
+                margin: 0 !important;
+                transform: none !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+            #services > div:last-child {
+                grid-template-columns: 1fr !important;
+                gap: .85rem !important;
+            }
+
+            #services > div:last-child > article {
+                min-height: 15.5rem !important;
+                padding: 1.2rem !important;
+            }
+        }
+
         @media (prefers-reduced-motion: reduce) {
 
             *,
