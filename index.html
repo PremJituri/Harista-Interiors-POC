@@ -995,6 +995,574 @@
             }
         }
 
+
+        /* =========================================================
+           FINAL MOBILE RESPONSIVENESS PASS
+           Keeps the desktop design intact and fixes the main page
+           independently below 900px / 640px.
+           ========================================================= */
+
+        @media (max-width: 900px) {
+            /* Prevent any component from creating page-width overflow */
+            html,
+            body {
+                width: 100%;
+                max-width: 100%;
+                overflow-x: hidden !important;
+            }
+
+            /* Header: keep brand + WhatsApp CTA comfortably inside viewport */
+            header {
+                left: .65rem !important;
+                right: .65rem !important;
+                width: auto !important;
+            }
+
+            header nav {
+                padding-left: .85rem !important;
+                padding-right: .85rem !important;
+                gap: .5rem !important;
+            }
+
+            header nav > a:first-child {
+                min-width: 0 !important;
+                flex: 1 1 auto !important;
+                gap: .55rem !important;
+            }
+
+            header nav > a:first-child img {
+                width: 2.15rem !important;
+                height: 2.15rem !important;
+                flex: 0 0 2.15rem !important;
+            }
+
+            header nav > a:last-child {
+                flex: 0 0 auto !important;
+                white-space: nowrap !important;
+                padding: .62rem .85rem !important;
+                font-size: .78rem !important;
+            }
+
+            header a[aria-label="Harista Interiors home"] > span > span:first-child {
+                font-size: 1.08rem !important;
+                letter-spacing: .13em !important;
+            }
+
+            header a[aria-label="Harista Interiors home"] > span > span:last-child {
+                margin-top: 3px !important;
+                font-size: .68rem !important;
+                letter-spacing: .16em !important;
+            }
+
+            /* HERO */
+            main > section:first-child {
+                width: 100% !important;
+                min-height: auto !important;
+                height: auto !important;
+                padding: 5.9rem .65rem 2.25rem !important;
+            }
+
+            main > section:first-child::before {
+                top: 13%;
+                right: -18%;
+                width: 82%;
+                height: 58%;
+                opacity: .7;
+            }
+
+            main > section:first-child > .hero-layout {
+                width: 100% !important;
+                min-height: 0 !important;
+                height: auto !important;
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 0 !important;
+            }
+
+            .hero-layout > div:first-child {
+                width: 100% !important;
+                min-width: 0 !important;
+                height: auto !important;
+                padding: 1rem .85rem .5rem !important;
+                display: block !important;
+            }
+
+            .hero-layout .hero-copy {
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+
+            .hero-layout .hero-copy > p:first-child {
+                margin-bottom: .85rem !important;
+                font-size: .58rem !important;
+                letter-spacing: .16em !important;
+                white-space: normal !important;
+            }
+
+            .hero-layout .hero-headline {
+                width: 100% !important;
+                max-width: 11.5ch !important;
+                font-size: clamp(2.45rem, 11.2vw, 3.55rem) !important;
+                line-height: .94 !important;
+                letter-spacing: -.055em !important;
+            }
+
+            .hero-headline-line {
+                white-space: normal !important;
+            }
+
+            .hero-layout .hero-copy > p:not(:first-child) {
+                width: 100% !important;
+                max-width: 34rem !important;
+                margin-top: 1.1rem !important;
+                font-size: .88rem !important;
+                line-height: 1.55 !important;
+            }
+
+            .hero-layout .hero-copy > div:last-child {
+                width: 100% !important;
+                margin-top: 1.2rem !important;
+                display: flex !important;
+                flex-wrap: wrap !important;
+                gap: .7rem !important;
+            }
+
+            .hero-layout .hero-copy > div:last-child a {
+                white-space: nowrap !important;
+            }
+
+            /* Lottie: smaller, centered, and never allowed to dictate page width */
+            .hero-layout > .hero-lottie {
+                width: 100% !important;
+                max-width: 27rem !important;
+                height: 20rem !important;
+                min-height: 0 !important;
+                margin: .15rem auto 0 !important;
+                padding: 0 !important;
+            }
+
+            .hero-lottie-frame {
+                width: 100% !important;
+                max-width: 27rem !important;
+                height: 20rem !important;
+                margin: 0 auto !important;
+            }
+
+            .hero-lottie-frame lottie-player {
+                width: 100% !important;
+                height: 100% !important;
+                transform: scale(1.12) !important;
+                transform-origin: center center !important;
+            }
+
+            /* STATS: preserve the 2 x 2 mobile rhythm */
+            main > section:nth-child(2) {
+                width: 100% !important;
+                max-width: 100% !important;
+                margin: 0 !important;
+            }
+
+            main > section:nth-child(2) > div {
+                width: 100% !important;
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+                padding-left: .9rem !important;
+                padding-right: .9rem !important;
+            }
+
+            main > section:nth-child(2) > div > div {
+                min-width: 0 !important;
+                padding-left: .75rem !important;
+                padding-right: .75rem !important;
+            }
+
+            main > section:nth-child(2) strong {
+                font-size: 1.65rem !important;
+            }
+
+            main > section:nth-child(2) span {
+                font-size: .57rem !important;
+                line-height: 1.3 !important;
+                letter-spacing: .08em !important;
+            }
+
+            /* SERVICES: the inline desktop grid was overriding the media query.
+               Force it to one column on mobile. */
+            #services {
+                width: 100% !important;
+                max-width: 100% !important;
+                padding: 4.5rem 1rem 4.5rem !important;
+            }
+
+            #services > div:first-child {
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+
+            #services > div:first-child > p:last-child {
+                font-size: .96rem !important;
+                line-height: 1.65 !important;
+            }
+
+            #services > div:last-child {
+                width: 100% !important;
+                display: grid !important;
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+                margin-top: 2rem !important;
+            }
+
+            #services > div:last-child > article {
+                width: 100% !important;
+                min-width: 0 !important;
+                min-height: 0 !important;
+                padding: 1.35rem !important;
+                transform: none !important;
+            }
+
+            #services article h3 {
+                margin-top: 2.5rem !important;
+                font-size: 1.35rem !important;
+            }
+
+            #services article p {
+                font-size: .88rem !important;
+                line-height: 1.55 !important;
+            }
+
+            /* FACTORY: stack image and content cleanly */
+            #factory {
+                width: 100% !important;
+                padding: 4.5rem 1rem !important;
+            }
+
+            #factory > div {
+                width: 100% !important;
+                max-width: 100% !important;
+                display: grid !important;
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+
+            #factory > div > div:first-child {
+                width: calc(100% - .75rem) !important;
+                height: min(68vw, 23rem) !important;
+                min-height: 17rem !important;
+                margin: 0 .75rem 0 0 !important;
+                transform: none !important;
+                box-shadow: 10px 12px 0 var(--blue-grey) !important;
+            }
+
+            #factory > div > div:first-child img {
+                width: 100% !important;
+                height: 100% !important;
+            }
+
+            #factory > div > div:first-child span {
+                left: .75rem !important;
+                bottom: .75rem !important;
+                max-width: calc(100% - 1.5rem) !important;
+                padding: .65rem .75rem !important;
+                font-size: .58rem !important;
+                line-height: 1.3 !important;
+            }
+
+            #factory > div > div:last-child {
+                width: 100% !important;
+                min-width: 0 !important;
+                padding: 1.35rem !important;
+            }
+
+            #factory h2 {
+                font-size: clamp(2rem, 9vw, 3rem) !important;
+            }
+
+            #factory > div > div:last-child > p {
+                font-size: .9rem !important;
+                line-height: 1.65 !important;
+            }
+
+            #factory > div > div:last-child .space-y-5 > div {
+                padding: .85rem .9rem !important;
+            }
+
+            /* PORTFOLIO */
+            #portfolio {
+                width: 100% !important;
+                max-width: 100% !important;
+                padding: 4.5rem 1rem !important;
+            }
+
+            #portfolio > div:first-child {
+                align-items: flex-start !important;
+                gap: 1rem !important;
+            }
+
+            #portfolio > div:first-child > div {
+                min-width: 0 !important;
+            }
+
+            #portfolio > div:first-child h2 {
+                font-size: clamp(2.2rem, 9vw, 3rem) !important;
+            }
+
+            #portfolio > div:first-child + div {
+                width: 100% !important;
+                display: grid !important;
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+                margin-top: 2rem !important;
+            }
+
+            #portfolio figure,
+            #portfolio figure:first-child,
+            #portfolio figure:nth-child(2),
+            #portfolio figure:nth-child(3) {
+                width: 100% !important;
+                height: min(82vw, 25rem) !important;
+                min-height: 18rem !important;
+                margin: 0 !important;
+            }
+
+            #portfolio figcaption {
+                padding: 1.15rem !important;
+            }
+
+            /* FOOTER */
+            footer > div {
+                width: 100% !important;
+                max-width: 100% !important;
+                padding: 3.75rem 1rem !important;
+            }
+
+            footer > div > div:first-child {
+                grid-template-columns: 1fr !important;
+                gap: 2.5rem !important;
+            }
+
+            footer h2 {
+                font-size: clamp(2.1rem, 8.5vw, 3rem) !important;
+                line-height: 1.05 !important;
+            }
+
+            footer iframe {
+                width: 100% !important;
+                height: 220px !important;
+            }
+
+            footer > div > div:last-child {
+                margin-top: 3rem !important;
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                gap: .8rem !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+            header {
+                top: .45rem !important;
+                left: .45rem !important;
+                right: .45rem !important;
+                height: 3.8rem !important;
+            }
+
+            header nav {
+                height: 3.8rem !important;
+                padding: 0 .7rem !important;
+            }
+
+            header nav > a:first-child img {
+                width: 1.95rem !important;
+                height: 1.95rem !important;
+                flex-basis: 1.95rem !important;
+            }
+
+            header a[aria-label="Harista Interiors home"] > span > span:first-child {
+                font-size: .96rem !important;
+                letter-spacing: .11em !important;
+            }
+
+            header a[aria-label="Harista Interiors home"] > span > span:last-child {
+                font-size: .58rem !important;
+                letter-spacing: .13em !important;
+            }
+
+            header nav > a:last-child {
+                padding: .56rem .72rem !important;
+                font-size: .72rem !important;
+            }
+
+            main > section:first-child {
+                padding: 5.35rem .5rem 1.25rem !important;
+            }
+
+            .hero-layout > div:first-child {
+                padding: .8rem .7rem .25rem !important;
+            }
+
+            .hero-layout .hero-headline {
+                max-width: 10.8ch !important;
+                font-size: clamp(2.25rem, 11.8vw, 3.25rem) !important;
+            }
+
+            .hero-layout .hero-copy > p:not(:first-child) {
+                font-size: .84rem !important;
+                line-height: 1.55 !important;
+            }
+
+            .hero-layout .hero-copy > div:last-child {
+                align-items: stretch !important;
+                flex-direction: column !important;
+                gap: .65rem !important;
+            }
+
+            .hero-layout .hero-copy > div:last-child a {
+                width: 100% !important;
+                text-align: center !important;
+            }
+
+            .hero-layout > .hero-lottie {
+                max-width: 22rem !important;
+                height: 17rem !important;
+                margin-top: .25rem !important;
+            }
+
+            .hero-lottie-frame {
+                max-width: 22rem !important;
+                height: 17rem !important;
+            }
+
+            .hero-lottie-frame lottie-player {
+                transform: scale(1.08) !important;
+            }
+
+            main > section:nth-child(2) > div {
+                padding-left: .55rem !important;
+                padding-right: .55rem !important;
+            }
+
+            main > section:nth-child(2) > div > div {
+                padding-top: 1.35rem !important;
+                padding-bottom: 1.35rem !important;
+            }
+
+            #services,
+            #portfolio {
+                padding-left: .85rem !important;
+                padding-right: .85rem !important;
+            }
+
+            #services > div:last-child {
+                gap: .8rem !important;
+            }
+
+            #services > div:last-child > article {
+                padding: 1.15rem !important;
+            }
+
+            #factory {
+                padding-left: .85rem !important;
+                padding-right: .85rem !important;
+            }
+
+            #factory > div > div:first-child {
+                min-height: 15rem !important;
+                height: 64vw !important;
+                max-height: 21rem !important;
+            }
+
+            #factory > div > div:last-child {
+                padding: 1.15rem !important;
+            }
+
+            #portfolio {
+                padding-top: 4rem !important;
+                padding-bottom: 4rem !important;
+            }
+
+            #portfolio > div:first-child {
+                flex-direction: column !important;
+                align-items: flex-start !important;
+            }
+
+            #portfolio > div:first-child + div {
+                margin-top: 1.5rem !important;
+            }
+
+            #portfolio figure,
+            #portfolio figure:first-child,
+            #portfolio figure:nth-child(2),
+            #portfolio figure:nth-child(3) {
+                height: 78vw !important;
+                min-height: 16rem !important;
+                max-height: 23rem !important;
+            }
+
+            footer > div {
+                padding-left: .9rem !important;
+                padding-right: .9rem !important;
+            }
+
+            footer > div > div:first-child {
+                gap: 2rem !important;
+            }
+
+            footer .flex.flex-wrap {
+                align-items: stretch !important;
+            }
+
+            footer .flex.flex-wrap a,
+            footer .flex.flex-wrap a:first-child {
+                width: 100% !important;
+                text-align: center !important;
+            }
+        }
+
+        @media (max-width: 380px) {
+            header nav {
+                padding-left: .55rem !important;
+                padding-right: .55rem !important;
+            }
+
+            header nav > a:first-child {
+                gap: .4rem !important;
+            }
+
+            header nav > a:first-child img {
+                width: 1.75rem !important;
+                height: 1.75rem !important;
+                flex-basis: 1.75rem !important;
+            }
+
+            header a[aria-label="Harista Interiors home"] > span > span:first-child {
+                font-size: .84rem !important;
+                letter-spacing: .08em !important;
+            }
+
+            header a[aria-label="Harista Interiors home"] > span > span:last-child {
+                font-size: .5rem !important;
+                letter-spacing: .1em !important;
+            }
+
+            header nav > a:last-child {
+                padding: .5rem .6rem !important;
+                font-size: .67rem !important;
+            }
+
+            .hero-layout .hero-headline {
+                font-size: 2.2rem !important;
+            }
+
+            .hero-layout > .hero-lottie {
+                height: 15.5rem !important;
+            }
+
+            .hero-lottie-frame {
+                height: 15.5rem !important;
+            }
+        }
+
         @media (prefers-reduced-motion: reduce) {
 
             *,
