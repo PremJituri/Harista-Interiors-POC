@@ -1,0 +1,10 @@
+{
+  "name": "harista-interiors",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Harista Interiors — Factory-direct luxury interiors in Belagavi.",
+  "scripts": {
+    "start": "npm start --prefix backend",
+    "dev": "npm run dev --prefix backend"
+  }
+}

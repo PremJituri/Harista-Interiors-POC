@@ -34,7 +34,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/logo.jpg">
+    <script src="assests/home-animation.js"></script>
+    <link rel="icon" type="image/png" href="assests/logo.png">
 
     <style>
         :root {
@@ -924,6 +925,94 @@
             }
         }
 
+        /* =========================================
+           HARISTA BRAND LOCKUP — EXACT FROM HOME PAGE
+           ========================================= */
+
+        header a[aria-label="Harista Interiors home"]>span>span:first-child {
+            font-size: 26px !important;
+            font-weight: 800 !important;
+            letter-spacing: .18em !important;
+            line-height: 1 !important;
+        }
+
+        header a[aria-label="Harista Interiors home"]>span>span:last-child {
+            margin-top: 6px !important;
+            font-size: 15px !important;
+            font-weight: 700 !important;
+            letter-spacing: .20em !important;
+            line-height: 1 !important;
+        }
+
+        @media (max-width: 768px) {
+            header a[aria-label="Harista Interiors home"] > span > span:first-child {
+                font-size: 1.08rem !important;
+                letter-spacing: .13em !important;
+            }
+
+            header a[aria-label="Harista Interiors home"] > span > span:last-child {
+                margin-top: 3px !important;
+                font-size: .68rem !important;
+                letter-spacing: .16em !important;
+            }
+        }
+
+        /* Luxury glass, album cards, buttons & toast */
+        .glass-card {
+            border: 1px solid rgba(83, 108, 124, .32);
+            border-radius: 1.25rem;
+            background: linear-gradient(110deg, rgba(217,229,215,.65), rgba(208,224,205,.45));
+            box-shadow: inset 0 1px 0 rgba(255,255,255,.3), 0 20px 45px rgba(24,34,65,.08);
+            backdrop-filter: blur(16px);
+        }
+
+        .album-card {
+            border: 1px solid rgba(83, 108, 124, .38);
+            border-radius: 1.15rem;
+            background: #182241;
+            box-shadow: 0 18px 40px rgba(24,34,65,.22);
+            overflow: hidden;
+            transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease, border-color .35s ease;
+        }
+        .album-card:hover {
+            border-color: #D0E0CD;
+            box-shadow: 0 26px 65px rgba(24,34,65,.35), 0 0 30px rgba(208,224,205,.12);
+            transform: translateY(-4px);
+        }
+
+        .btn-primary {
+            position: relative; overflow: hidden;
+            border: 1px solid rgba(255,255,255,.32); border-radius: 999px;
+            background: linear-gradient(135deg, rgba(24,34,65,.96), rgba(33,60,78,.88));
+            color: #F4F7F1;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,.20), 0 8px 20px rgba(24,34,65,.16);
+            transition: transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s ease, background .3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, rgba(33,60,78,.98), rgba(24,34,65,.96));
+            box-shadow: inset 0 1px 0 rgba(255,255,255,.25), 0 12px 28px rgba(24,34,65,.20);
+        }
+
+        .btn-secondary {
+            border: 1px solid rgba(83, 108, 124, .35);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, .7);
+            color: var(--ink);
+            transition: background .25s ease, transform .25s ease, box-shadow .25s ease;
+        }
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, .95);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 18px rgba(24,34,65,.1);
+        }
+
+        #toast.show {
+            opacity: 1 !important;
+            pointer-events: auto !important;
+            transform: translateY(0) !important;
+        }
+
 </style>
 </head>
 
@@ -933,12 +1022,13 @@
     <header class="sticky top-0 z-50 border-b border-stone-200/80 bg-sand/95 backdrop-blur">
         <nav class="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-8" aria-label="Main navigation">
             <a href="index.html" class="flex items-center gap-3" aria-label="Harista Interiors home">
-                <img src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors-POC/refs/heads/main/assests/logo.png" alt="Harista Interiors" class="logo-image h-10 w-10 object-contain" />
+                <img src="assests/logo.png" alt="Harista Interiors" class="logo-image h-10 w-10 object-contain" />
                 <span class="leading-none">
-                    <span class="block text-sm font-bold tracking-[.18em]">HARISTA</span>
-                    <span class="block pt-1 text-[10px] tracking-[.26em] text-oak">INTERIORS</span>
-                </span>
-            </a>
+                    <span>
+                        <span>HARISTA</span>
+                        <span>INTERIORS</span>
+                    </span>
+                </span> </a>
 
             <div class="hidden items-center gap-7 text-sm font-medium md:flex">
                 <a class="transition hover:text-oak" href="index.html#services">Services</a>
@@ -948,10 +1038,28 @@
                 <a class="text-oak font-semibold" href="our-work.html">Our Work</a>
             </div>
 
-            <a href="https://wa.me/919481809907" target="_blank" rel="noopener" class="rounded-full bg-[#1f7a4e] px-4 py-2.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#17633e] sm:px-5">
-                WhatsApp <span class="hidden sm:inline">Us</span> ↗
-            </a>
+            <div class="flex items-center gap-3">
+                <a href="admin-login.html" class="flex h-9 w-9 items-center justify-center rounded-full border border-oak/25 bg-white/30 text-oak transition hover:bg-white/50 hover:text-ink" title="Admin Login" aria-label="Admin Login">
+                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+                </a>
+                <a href="https://wa.me/919481809907" target="_blank" rel="noopener" class="rounded-full bg-[#1f7a4e] px-4 py-2.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#17633e] sm:px-5">
+                    WhatsApp <span class="hidden sm:inline">Us</span> ↗
+                </a>
+                <button id="mobile-menu-toggle" type="button" class="flex h-9 w-9 items-center justify-center rounded-lg border border-oak/25 bg-white/30 text-ink transition hover:bg-white/50 md:hidden" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav-menu">
+                    <svg id="menu-icon-open" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                    <svg id="menu-icon-close" class="hidden h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
         </nav>
+        <div id="mobile-nav-menu" class="hidden border-t border-stone-200/80 bg-sand/98 px-5 py-4 backdrop-blur md:hidden" aria-label="Mobile navigation">
+            <div class="flex flex-col space-y-3 font-medium text-base">
+                <a class="mobile-nav-link py-2 transition hover:text-oak" href="index.html#services">Services</a>
+                <a class="mobile-nav-link py-2 transition hover:text-oak" href="index.html#factory">Our Factory</a>
+                <a class="mobile-nav-link py-2 transition hover:text-oak" href="index.html#portfolio">Portfolio</a>
+                <a class="mobile-nav-link py-2 transition hover:text-oak" href="index.html#contact">Contact</a>
+                <a class="mobile-nav-link py-2 font-semibold text-oak transition hover:text-ink" href="our-work.html">Our Work (Current)</a>
+            </div>
+        </div>
     </header>
 
     <main>
@@ -968,236 +1076,126 @@
                     </p>
                 </div>
                 <div class="our-work-lottie" aria-hidden="true">
-                    <lottie-player src="assests/Home.json" loop autoplay></lottie-player>
+                    <lottie-player id="work-lottie-player" background="transparent" speed="1" loop autoplay></lottie-player>
                 </div>
             </div>
         </section>
 
         <!-- Gallery Section -->
-        <section class="mx-auto max-w-7xl px-5 py-12 sm:px-8 lg:px-12 lg:py-16">
+        <section class="mx-auto max-w-7xl px-5 py-10 sm:px-8 lg:px-12 lg:py-16" id="gallery-main-section">
 
-            <!-- Tabs -->
-            <div class="mb-10 flex flex-wrap gap-2" id="tabs">
-                <button class="tab-btn active rounded-full px-5 py-2.5 text-sm font-medium transition" data-tab="kitchens">
-                    Modular Kitchens
-                </button>
-                <button class="tab-btn rounded-full bg-white px-5 py-2.5 text-sm font-medium transition hover:bg-ink hover:text-sand" data-tab="homes">
-                    Home Interiors
-                </button>
-                <button class="tab-btn rounded-full bg-white px-5 py-2.5 text-sm font-medium transition hover:bg-ink hover:text-sand" data-tab="office">
-                    Office & Commercial
-                </button>
-                <button class="tab-btn rounded-full bg-white px-5 py-2.5 text-sm font-medium transition hover:bg-ink hover:text-sand" data-tab="wardrobes">
-                    Wardrobes
-                </button>
-                <button class="tab-btn rounded-full bg-white px-5 py-2.5 text-sm font-medium transition hover:bg-ink hover:text-sand" data-tab="beds">
-                    Beds
-                </button>
-                <button class="tab-btn rounded-full bg-white px-5 py-2.5 text-sm font-medium transition hover:bg-ink hover:text-sand" data-tab="tv">
-                    TV Units
-                </button>
+            <!-- Breadcrumbs Navigation Bar -->
+            <nav id="breadcrumbs-nav" class="mb-8 flex items-center gap-2 overflow-x-auto whitespace-nowrap pb-2 text-sm text-oak" aria-label="Breadcrumb">
+                <!-- Dynamically populated -->
+            </nav>
+
+            <!-- Loading Spinner -->
+            <div id="gallery-loading" class="py-24 text-center">
+                <svg class="mx-auto h-8 w-8 animate-spin text-oak" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>
+                <p class="mt-3 text-sm text-oat">Loading collections...</p>
             </div>
 
-            <!-- Gallery Panels -->
+            <!-- ROOT VIEW (Level 1 Albums) -->
+            <div id="root-gallery-view" class="hidden">
+                <div class="mb-10 flex flex-wrap items-end justify-between gap-4">
+                    <div>
+                        <p class="text-xs font-bold uppercase tracking-[.20em] text-oak">Portfolio Index</p>
+                        <h2 class="display mt-1 text-3xl font-bold text-ink sm:text-4xl">Featured Collections</h2>
+                        <p class="mt-2 text-sm text-oat">Explore our luxury interior collections, custom designs, and bespoke projects.</p>
+                    </div>
+                    <span class="rounded-full bg-oak/15 px-4 py-1.5 text-xs font-semibold text-oak" id="total-collections-badge">
+                        0 Collections
+                    </span>
+                </div>
 
-            <!-- Modular Kitchens -->
-            <div class="gallery-panel active gap-4 sm:grid-cols-2 lg:grid-cols-3" id="kitchens">
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Modular%20Kitchen/IMG-20260824-WA0016.jpg" alt="Warm oak modular kitchen" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Modular%20Kitchen/IMG-20260824-WA0018.jpg" alt="Modern white modular kitchen" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Modular%20Kitchen/IMG-20260824-WA0035.jpg" alt="Luxury modular kitchen" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Modular%20Kitchen/IMG-20260824-WA0037.jpg" alt="Minimal kitchen design" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Modular%20Kitchen/IMG-20260824-WA0051.jpg" alt="Modern living room" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Modular%20Kitchen/IMG-20260824-WA0054.jpg" alt="Bedroom interior" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Modular%20Kitchen/IMG-20260824-WA0057.jpg" alt="Luxury living space" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
+                <!-- Root Album Cards Grid -->
+                <div id="root-albums-grid" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    <!-- Album cards injected here -->
+                </div>
             </div>
 
-            <!-- Home Interiors -->
-            <div class="gallery-panel gap-4 sm:grid-cols-2 lg:grid-cols-3" id="homes">
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Home%20Interiors/IMG-20260824-WA0009.jpg" alt="Modern living room" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Home%20Interiors/IMG-20260824-WA0021.jpg" alt="Bedroom interior" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Home%20Interiors/IMG-20260824-WA0028.jpg" alt="Luxury living space" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Home%20Interiors/IMG-20260824-WA0033.jpg" alt="Modern living room" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Home%20Interiors/IMG-20260824-WA0047.jpg" alt="Bedroom interior" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Home%20Interiors/IMG-20260824-WA0053.jpg" alt="Luxury living space" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Home%20Interiors/IMG-20260824-WA0061.jpg" alt="Modern living room" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Home%20Interiors/IMG-20260824-WA0062.jpg" alt="Bedroom interior" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Home%20Interiors/IMG-20260824-WA0063.jpg" alt="Luxury living space" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
-            </div>
+            <!-- ALBUM DRILL-DOWN VIEW (Level 1, 2, 3, or 4) -->
+            <div id="album-drilldown-view" class="hidden">
+                <!-- Album Header Card -->
+                <div class="glass-card mb-12 p-6 sm:p-8">
+                    <div class="flex flex-wrap items-start justify-between gap-5">
+                        <div class="max-w-3xl">
+                            <div class="mb-3 flex flex-wrap items-center gap-2">
+                                <span class="rounded-full bg-oak/15 px-3 py-1 text-xs font-semibold text-oak" id="album-depth-badge">
+                                    Level 1 of 4
+                                </span>
+                                <span class="rounded-full bg-oak/10 px-3 py-1 text-xs font-medium text-oak" id="album-photos-count-pill">
+                                    0 Photos
+                                </span>
+                                <span class="rounded-full bg-oak/10 px-3 py-1 text-xs font-medium text-oak hidden" id="album-subalbums-count-pill">
+                                    0 Sub-albums
+                                </span>
+                            </div>
+                            <h1 class="display text-3xl font-bold text-ink sm:text-4xl lg:text-5xl" id="album-view-title">
+                                Album Title
+                            </h1>
+                            <p class="mt-3 text-sm sm:text-base text-oat leading-relaxed" id="album-view-desc"></p>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-3">
+                            <button onclick="shareCurrentAlbum()" class="btn-secondary flex items-center gap-2 px-5 py-2.5 text-xs sm:text-sm font-semibold cursor-pointer" title="Copy shareable link to this album">
+                                <svg class="h-4 w-4 text-oak" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                                </svg>
+                                <span>Share Album</span>
+                            </button>
+                            <button onclick="navigateUp(event)" class="btn-primary flex items-center gap-1.5 px-5 py-2.5 text-xs sm:text-sm font-semibold cursor-pointer">
+                                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                                </svg>
+                                <span>Back</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
-            <!-- Office & Commercial -->
-            <div class="gallery-panel gap-4 sm:grid-cols-2 lg:grid-cols-3" id="office">
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Office%20%26%20Commercial/Screenshot_2026-08-25-12-54-35-53_6012fa4d4ddec268fc5c7112cbb265e7.jpg" alt="Modern living room" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Office%20%26%20Commercial/Screenshot_2026-08-25-12-54-49-04_6012fa4d4ddec268fc5c7112cbb265e7.jpg" alt="Bedroom interior" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Office%20%26%20Commercial/Screenshot_2026-08-25-12-54-22-47_6012fa4d4ddec268fc5c7112cbb265e7.jpg" alt="Luxury living space" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Office%20%26%20Commercial/Screenshot_2026-08-25-12-52-32-52_6012fa4d4ddec268fc5c7112cbb265e7.jpg" alt="Modern living room" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Office%20%26%20Commercial/Screenshot_2026-08-25-12-52-17-18_6012fa4d4ddec268fc5c7112cbb265e7.jpg" alt="Bedroom interior" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Office%20%26%20Commercial/Screenshot_2026-08-25-12-52-00-23_6012fa4d4ddec268fc5c7112cbb265e7.jpg" alt="Luxury living space" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Office%20%26%20Commercial/Screenshot_2026-08-25-12-51-41-30_6012fa4d4ddec268fc5c7112cbb265e7.jpg" alt="Modern living room" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Office%20%26%20Commercial/Screenshot_2026-08-25-12-51-20-74_6012fa4d4ddec268fc5c7112cbb265e7.jpg" alt="Bedroom interior" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Office%20%26%20Commercial/Screenshot_2026-08-25-12-51-12-01_6012fa4d4ddec268fc5c7112cbb265e7.jpg" alt="Luxury living space" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Office%20%26%20Commercial/Screenshot_2026-08-25-12-50-07-25_6012fa4d4ddec268fc5c7112cbb265e7.jpg" alt="Luxury living space" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
-            </div>
+                <!-- Sub-albums Section -->
+                <div id="sub-albums-section" class="mb-14 hidden">
+                    <div class="mb-6 flex items-center justify-between border-b border-oak/15 pb-4">
+                        <div>
+                            <h2 class="display text-2xl font-bold text-ink">Sub-Collections</h2>
+                            <p class="text-xs text-oat">Explore specialized folders in this collection</p>
+                        </div>
+                        <span class="rounded-full bg-oak/10 px-3 py-1 text-xs font-semibold text-oak" id="sub-albums-count-label">
+                            0 Sub-albums
+                        </span>
+                    </div>
+                    <div id="sub-albums-grid" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                        <!-- Sub-album cards injected here -->
+                    </div>
+                </div>
 
-            <!-- Wardrobes -->
-            <div class="gallery-panel gap-4 sm:grid-cols-2 lg:grid-cols-3" id="wardrobes">
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Wardrobes/IMG-20260824-WA0010.jpg" alt="Modern living room" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Wardrobes/IMG-20260824-WA0012.jpg" alt="Bedroom interior" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Wardrobes/IMG-20260824-WA0014.jpg" alt="Luxury living space" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Wardrobes/IMG-20260824-WA0017.jpg" alt="Modern living room" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Wardrobes/IMG-20260824-WA0026.jpg" alt="Bedroom interior" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Wardrobes/IMG-20260824-WA0058.jpg" alt="Luxury living space" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Wardrobes/IMG-20260824-WA0062.jpg" alt="Modern living room" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Wardrobes/IMG-20260824-WA0065.jpg" alt="Bedroom interior" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
-            </div>
+                <!-- Photos Section -->
+                <div id="photos-section" class="hidden">
+                    <div class="mb-6 flex items-center justify-between border-b border-oak/15 pb-4">
+                        <div>
+                            <h2 class="display text-2xl font-bold text-ink">Photographs</h2>
+                            <p class="text-xs text-oat">High-resolution portfolio captures (click any image to expand)</p>
+                        </div>
+                        <span class="rounded-full bg-oak/10 px-3 py-1 text-xs font-semibold text-oak" id="photos-count-label">
+                            0 Photos
+                        </span>
+                    </div>
+                    <!-- Photo Grid with Responsive Bento Layout -->
+                    <div id="photos-grid" class="gallery-panel active">
+                        <!-- Photos injected dynamically -->
+                    </div>
+                </div>
 
-            <!-- Beds -->
-            <div class="gallery-panel gap-4 sm:grid-cols-2 lg:grid-cols-3" id="beds">
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Beds/IMG-20260824-WA0023.jpg" alt="Modern living room" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Beds/IMG-20260824-WA0024.jpg" alt="Bedroom interior" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Beds/IMG-20260824-WA0025.jpg" alt="Luxury living space" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Beds/IMG-20260824-WA0027.jpg" alt="Modern living room" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Beds/IMG-20260824-WA0055.jpg" alt="Bedroom interior" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Beds/IMG-20260824-WA0058.jpg" alt="Luxury living space" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/Beds/IMG-20260824-WA0065.jpg" alt="Modern living room" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
-            </div>
-
-            <!-- TV Units -->
-            <div class="gallery-panel gap-4 sm:grid-cols-2 lg:grid-cols-3" id="tv">
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/TV%20Units/IMG-20260824-WA0009.jpg" alt="Bedroom interior" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/TV%20Units/IMG-20260824-WA0011.jpg" alt="Luxury living space" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
-                <figure class="group relative aspect-[4/5] overflow-hidden rounded-sm">
-                    <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors/refs/heads/main/assests/TV%20Units/IMG-20260824-WA0047.jpg" alt="Modern living room" />
-                    <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
-                </figure>
+                <!-- Empty State within Album -->
+                <div id="empty-album-notice" class="hidden py-16 text-center">
+                    <div class="glass-card mx-auto max-w-md p-8">
+                        <p class="display text-2xl text-ink">No Content Yet</p>
+                        <p class="mt-2 text-sm text-oat">This collection currently has no sub-albums or photographs.</p>
+                        <button onclick="navigateToRoot(event)" class="btn-primary mt-6 px-6 py-2.5 text-xs font-semibold">
+                            Back to Collections
+                        </button>
+                    </div>
+                </div>
             </div>
 
         </section>
@@ -1216,14 +1214,34 @@
 
     <!-- Lightbox Modal -->
     <div id="lightbox"
-         class="fixed inset-0 z-[2147483647] hidden flex items-center justify-center"
-         aria-hidden="true">
+         role="dialog"
+         aria-modal="true"
+         aria-label="Photo gallery lightbox"
+         class="fixed inset-0 z-[2147483647] hidden flex items-center justify-center">
 
         <button
             id="close-lightbox"
             type="button"
-            aria-label="Close image"
+            aria-label="Close image lightbox"
         >&times;</button>
+
+        <!-- Prev Button -->
+        <button id="lightbox-prev" type="button" aria-label="Previous image"
+            style="position:fixed; left:1.25rem; top:50%; transform:translateY(-50%); z-index:2147483647;
+                   width:42px; height:42px; display:flex; align-items:center; justify-content:center;
+                   border:1px solid rgba(83,108,124,.25); border-radius:999px;
+                   background:rgba(255,255,255,.62); color:#182241; font-size:1.5rem;
+                   backdrop-filter:blur(10px); box-shadow:0 8px 24px rgba(24,34,65,.14);
+                   cursor:pointer; transition:background .3s;">&#8249;</button>
+
+        <!-- Next Button -->
+        <button id="lightbox-next" type="button" aria-label="Next image"
+            style="position:fixed; right:1.25rem; top:50%; transform:translateY(-50%); z-index:2147483647;
+                   width:42px; height:42px; display:flex; align-items:center; justify-content:center;
+                   border:1px solid rgba(83,108,124,.25); border-radius:999px;
+                   background:rgba(255,255,255,.62); color:#182241; font-size:1.5rem;
+                   backdrop-filter:blur(10px); box-shadow:0 8px 24px rgba(24,34,65,.14);
+                   cursor:pointer; transition:background .3s;">&#8250;</button>
 
         <div>
             <img
@@ -1232,6 +1250,21 @@
                 alt="Expanded portfolio image"
             >
         </div>
+
+        <!-- Counter -->
+        <div id="lightbox-counter"
+             style="position:fixed; bottom:1rem; left:50%; transform:translateX(-50%); z-index:2147483647;
+                    padding:.35rem 1rem; border-radius:999px; background:rgba(255,255,255,.6);
+                    font-size:.75rem; font-weight:500; color:#182241; backdrop-filter:blur(10px);">
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 right-6 z-[2147483646] flex items-center gap-3 rounded-full border border-oak/30 bg-[#182241] px-5 py-3 text-sm font-semibold text-[#D0E0CD] shadow-2xl transition-all duration-300 opacity-0 pointer-events-none translate-y-3">
+        <svg class="h-5 w-5 text-[#86efac]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        </svg>
+        <span id="toast-text">Album link copied to clipboard!</span>
     </div>
 
     <!-- Footer -->
@@ -1248,54 +1281,551 @@
         </div>
     </footer>
 
-    <!-- Fixed Tab Switching Script -->
+    <!-- Hierarchical Public Gallery Script -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Tab switching logic
-            const tabs = document.querySelectorAll('.tab-btn');
-            const panels = document.querySelectorAll('.gallery-panel');
+        const API_URL = window.location.protocol === 'file:' ? 'http://localhost:5000/api' : '/api';
 
-            tabs.forEach(tab => {
-                tab.addEventListener('click', function() {
-                    const target = this.getAttribute('data-tab');
+        // Curated static photography assets for initial core categories
+        const staticCategoryPhotos = {
+            'modular-kitchens': [
+                { url: 'assests/Modular Kitchen/IMG-20260824-WA0016.jpg', title: 'Warm oak modular kitchen' },
+                { url: 'assests/Modular Kitchen/IMG-20260824-WA0018.jpg', title: 'Modern white modular kitchen' },
+                { url: 'assests/Modular Kitchen/IMG-20260824-WA0035.jpg', title: 'Luxury modular kitchen' },
+                { url: 'assests/Modular Kitchen/IMG-20260824-WA0037.jpg', title: 'Minimal kitchen design' },
+                { url: 'assests/Modular Kitchen/IMG-20260824-WA0051.jpg', title: 'Modern kitchen layout' },
+                { url: 'assests/Modular Kitchen/IMG-20260824-WA0054.jpg', title: 'Island counter modular setup' },
+                { url: 'assests/Modular Kitchen/IMG-20260824-WA0057.jpg', title: 'Premium finish modular kitchen' }
+            ],
+            'home-interiors': [
+                { url: 'assests/Home Interiors/IMG-20260824-WA0009.jpg', title: 'Modern living room' },
+                { url: 'assests/Home Interiors/IMG-20260824-WA0021.jpg', title: 'Bedroom interior' },
+                { url: 'assests/Home Interiors/IMG-20260824-WA0028.jpg', title: 'Luxury living space' },
+                { url: 'assests/Home Interiors/IMG-20260824-WA0033.jpg', title: 'Modern living room' },
+                { url: 'assests/Home Interiors/IMG-20260824-WA0047.jpg', title: 'Bedroom interior' },
+                { url: 'assests/Home Interiors/IMG-20260824-WA0053.jpg', title: 'Luxury living space' },
+                { url: 'assests/Home Interiors/IMG-20260824-WA0061.jpg', title: 'Modern living room' },
+                { url: 'assests/Home Interiors/IMG-20260824-WA0062.jpg', title: 'Bedroom interior' },
+                { url: 'assests/Home Interiors/IMG-20260824-WA0063.jpg', title: 'Luxury living space' }
+            ],
+            'office-commercial': [
+                { url: 'assests/Office & Commercial/Screenshot_2026-08-25-12-54-35-53_6012fa4d4ddec268fc5c7112cbb265e7.jpg', title: 'Executive workstation' },
+                { url: 'assests/Office & Commercial/Screenshot_2026-08-25-12-54-49-04_6012fa4d4ddec268fc5c7112cbb265e7.jpg', title: 'Corporate reception' },
+                { url: 'assests/Office & Commercial/Screenshot_2026-08-25-12-54-22-47_6012fa4d4ddec268fc5c7112cbb265e7.jpg', title: 'Conference room' },
+                { url: 'assests/Office & Commercial/Screenshot_2026-08-25-12-52-32-52_6012fa4d4ddec268fc5c7112cbb265e7.jpg', title: 'Commercial interior' },
+                { url: 'assests/Office & Commercial/Screenshot_2026-08-25-12-52-17-18_6012fa4d4ddec268fc5c7112cbb265e7.jpg', title: 'Office lounge' },
+                { url: 'assests/Office & Commercial/Screenshot_2026-08-25-12-52-00-23_6012fa4d4ddec268fc5c7112cbb265e7.jpg', title: 'Workstation bays' },
+                { url: 'assests/Office & Commercial/Screenshot_2026-08-25-12-51-41-30_6012fa4d4ddec268fc5c7112cbb265e7.jpg', title: 'Executive office' },
+                { url: 'assests/Office & Commercial/Screenshot_2026-08-25-12-51-20-74_6012fa4d4ddec268fc5c7112cbb265e7.jpg', title: 'Meeting space' },
+                { url: 'assests/Office & Commercial/Screenshot_2026-08-25-12-51-12-01_6012fa4d4ddec268fc5c7112cbb265e7.jpg', title: 'Retail commercial setup' },
+                { url: 'assests/Office & Commercial/Screenshot_2026-08-25-12-50-07-25_6012fa4d4ddec268fc5c7112cbb265e7.jpg', title: 'Commercial showroom' }
+            ],
+            'wardrobes': [
+                { url: 'assests/Wardrobes/IMG-20260824-WA0010.jpg', title: 'Sliding wardrobe' },
+                { url: 'assests/Wardrobes/IMG-20260824-WA0012.jpg', title: 'Hinged wardrobe' },
+                { url: 'assests/Wardrobes/IMG-20260824-WA0014.jpg', title: 'Walk-in closet' },
+                { url: 'assests/Wardrobes/IMG-20260824-WA0017.jpg', title: 'Floor to ceiling wardrobe' },
+                { url: 'assests/Wardrobes/IMG-20260824-WA0026.jpg', title: 'Mirror finish wardrobe' },
+                { url: 'assests/Wardrobes/IMG-20260824-WA0058.jpg', title: 'Luxury wardrobe storage' },
+                { url: 'assests/Wardrobes/IMG-20260824-WA0062.jpg', title: 'Modular wardrobe units' },
+                { url: 'assests/Wardrobes/IMG-20260824-WA0065.jpg', title: 'Bespoke bedroom wardrobe' }
+            ],
+            'beds': [
+                { url: 'assests/Beds/IMG-20260824-WA0023.jpg', title: 'King size upholstered bed' },
+                { url: 'assests/Beds/IMG-20260824-WA0024.jpg', title: 'Modern wooden platform bed' },
+                { url: 'assests/Beds/IMG-20260824-WA0025.jpg', title: 'Storage hydraulic bed' },
+                { url: 'assests/Beds/IMG-20260824-WA0027.jpg', title: 'Luxury master bedroom bed' },
+                { url: 'assests/Beds/IMG-20260824-WA0055.jpg', title: 'Minimalist headboard bed' },
+                { url: 'assests/Beds/IMG-20260824-WA0058.jpg', title: 'Custom upholstered bed' },
+                { url: 'assests/Beds/IMG-20260824-WA0065.jpg', title: 'Contemporary bedroom set' }
+            ],
+            'tv-units': [
+                { url: 'assests/TV Units/IMG-20260824-WA0009.jpg', title: 'Wall-mounted media console' },
+                { url: 'assests/TV Units/IMG-20260824-WA0011.jpg', title: 'Modern fluted TV unit' },
+                { url: 'assests/TV Units/IMG-20260824-WA0047.jpg', title: 'Marble backdrop TV wall' }
+            ]
+        };
 
-                    tabs.forEach(t => {
-                        t.classList.remove('active');
-                        t.classList.add('bg-white');
-                    });
+        const fallbackCovers = {
+            'modular-kitchens': 'assests/Modular Kitchen/IMG-20260824-WA0016.jpg',
+            'home-interiors': 'assests/Home Interiors/IMG-20260824-WA0009.jpg',
+            'office-commercial': 'assests/Office & Commercial/Screenshot_2026-08-25-12-54-35-53_6012fa4d4ddec268fc5c7112cbb265e7.jpg',
+            'wardrobes': 'assests/Wardrobes/IMG-20260824-WA0010.jpg',
+            'beds': 'assests/Beds/IMG-20260824-WA0023.jpg',
+            'tv-units': 'assests/TV Units/IMG-20260824-WA0009.jpg'
+        };
 
-                    this.classList.add('active');
-                    this.classList.remove('bg-white');
+        let currentAlbum = null;
+        let allLightboxImages = [];
+        let currentLightboxIndex = 0;
+        let toastTimeout = null;
 
-                    panels.forEach(panel => {
-                        if (panel.id === target) {
-                            panel.classList.add('active');
-                        } else {
-                            panel.classList.remove('active');
-                        }
-                    });
-                });
+        // ==================== TOAST FEEDBACK ====================
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastText = document.getElementById('toast-text');
+            if (!toast || !toastText) return;
+            toastText.textContent = message;
+            toast.classList.add('show');
+            if (toastTimeout) clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // ==================== URL PARSER & HISTORY ====================
+        function getTargetSlugFromUrl() {
+            const params = new URLSearchParams(window.location.search);
+            const querySlug = params.get('album');
+            if (querySlug) return querySlug;
+
+            const path = window.location.pathname;
+            if (path.startsWith('/gallery/')) {
+                const sub = path.replace(/^\/gallery\/?/, '').split('/')[0];
+                if (sub) return sub;
+            }
+            return null;
+        }
+
+        function updateBrowserUrl(slug) {
+            const currentPath = window.location.pathname;
+            let targetUrl = currentPath;
+
+            if (currentPath.startsWith('/gallery')) {
+                targetUrl = slug ? `/gallery/${slug}` : '/gallery';
+            } else {
+                targetUrl = slug ? `${currentPath}?album=${encodeURIComponent(slug)}` : currentPath;
+            }
+
+            window.history.pushState({ slug }, '', targetUrl);
+        }
+
+        // ==================== CARD HTML GENERATOR ====================
+        function resolveCoverUrl(album) {
+            if (album.coverUrl) {
+                return (album.coverUrl.startsWith('http') || window.location.protocol !== 'file:')
+                    ? album.coverUrl
+                    : `http://localhost:5000${album.coverUrl}`;
+            }
+            if (fallbackCovers[album.slug]) {
+                return fallbackCovers[album.slug];
+            }
+            return 'assests/Modular Kitchen/IMG-20260824-WA0016.jpg';
+        }
+
+        function resolvePhotoCount(album) {
+            if (album.photoCount && album.photoCount > 0) return album.photoCount;
+            const staticList = staticCategoryPhotos[album.slug];
+            if (staticList && staticList.length > 0) return staticList.length;
+            return 0;
+        }
+
+        function createAlbumCard(album) {
+            const cover = resolveCoverUrl(album);
+            const photoCount = resolvePhotoCount(album);
+            const depthText = album.depth ? `Level ${album.depth}` : 'Collection';
+
+            const card = document.createElement('div');
+            card.className = 'album-card group cursor-pointer relative overflow-hidden rounded-2xl bg-ink transition-all duration-500 hover:-translate-y-1.5 hover:shadow-2xl';
+            card.onclick = (e) => {
+                e.preventDefault();
+                navigateToAlbum(album.slug);
+            };
+
+            card.innerHTML = `
+                <div class="aspect-[16/10] sm:aspect-[4/3] w-full overflow-hidden bg-[#213C4E] relative">
+                    <img src="${cover}" alt="${album.name}" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+                    <div class="absolute top-3.5 left-3.5">
+                        <span class="rounded-full border border-white/20 bg-[#182241]/80 px-3 py-1 text-[11px] font-semibold text-[#D0E0CD] backdrop-blur-md">
+                            ${depthText}
+                        </span>
+                    </div>
+                    ${album.subAlbumCount > 0 ? `
+                        <div class="absolute top-3.5 right-3.5">
+                            <span class="rounded-full border border-white/20 bg-[#182241]/80 px-2.5 py-1 text-[11px] font-semibold text-[#D0E0CD] backdrop-blur-md flex items-center gap-1">
+                                <svg class="w-3 h-3 text-[#D0E0CD]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg>
+                                ${album.subAlbumCount}
+                            </span>
+                        </div>
+                    ` : ''}
+                    <div class="absolute inset-x-0 bottom-0 p-5">
+                        <h3 class="display text-xl sm:text-2xl font-bold text-white group-hover:text-[#D0E0CD] transition-colors leading-tight">${album.name}</h3>
+                        ${album.description ? `<p class="mt-1.5 text-xs sm:text-sm text-stone-300 line-clamp-2">${album.description}</p>` : ''}
+                        <div class="mt-3.5 flex items-center justify-between text-xs text-stone-300 border-t border-white/15 pt-3">
+                            <span class="flex items-center gap-1.5 font-medium">
+                                <svg class="h-3.5 w-3.5 text-[#D0E0CD]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                                ${photoCount} ${photoCount === 1 ? 'photo' : 'photos'}
+                            </span>
+                            <span class="flex items-center gap-1 font-semibold text-[#D0E0CD] group-hover:translate-x-1 transition-transform">
+                                Explore <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            `;
+            return card;
+        }
+
+        // ==================== BREADCRUMBS ====================
+        function renderBreadcrumbs(crumbs = []) {
+            const nav = document.getElementById('breadcrumbs-nav');
+            if (!nav) return;
+
+            let html = `
+                <a href="#" onclick="navigateToRoot(event)" class="flex items-center gap-1.5 font-semibold text-oak transition hover:text-ink">
+                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                    <span>Our Work</span>
+                </a>
+            `;
+
+            crumbs.forEach((crumb, idx) => {
+                const isLast = idx === crumbs.length - 1;
+                html += `<span class="text-oak/40">/</span>`;
+                if (isLast) {
+                    html += `<span class="font-bold text-ink truncate max-w-[200px] sm:max-w-none" title="${crumb.name}">${crumb.name}</span>`;
+                } else {
+                    html += `<a href="#" onclick="navigateToAlbum('${crumb.slug}', event)" class="transition hover:text-ink truncate max-w-[150px] sm:max-w-none" title="${crumb.name}">${crumb.name}</a>`;
+                }
             });
 
-            // Lightbox Modal Logic
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImg = document.getElementById('lightbox-img');
-            const closeBtn = document.getElementById('close-lightbox');
-            const galleryImages = document.querySelectorAll('.gallery-panel img');
+            nav.innerHTML = html;
+        }
 
-            galleryImages.forEach(img => {
-                img.classList.add('cursor-pointer'); // Add pointer cursor on hover
-                img.addEventListener('click', function() {
-                    lightboxImg.src = this.src;
-                    lightboxImg.alt = this.alt;
+        // ==================== ROOT VIEW & CLIENT CACHE ====================
+        const albumCache = new Map();
+        let rootAlbumsCache = null;
+
+        function renderRootAlbums(albums, grid) {
+            grid.innerHTML = '';
+            document.getElementById('total-collections-badge').textContent = `${albums.length} Collections`;
+            const fragment = document.createDocumentFragment();
+            albums.forEach(album => {
+                fragment.appendChild(createAlbumCard(album));
+            });
+            grid.appendChild(fragment);
+        }
+
+        async function loadRootView(pushHistory = true) {
+            currentAlbum = null;
+            if (pushHistory) updateBrowserUrl(null);
+            document.title = 'Our Work | Harista Interiors';
+
+            renderBreadcrumbs([]);
+
+            document.getElementById('album-drilldown-view').classList.add('hidden');
+            const grid = document.getElementById('root-albums-grid');
+
+            if (rootAlbumsCache) {
+                renderRootAlbums(rootAlbumsCache, grid);
+                document.getElementById('gallery-loading').classList.add('hidden');
+                document.getElementById('root-gallery-view').classList.remove('hidden');
+                return;
+            }
+
+            document.getElementById('gallery-loading').classList.remove('hidden');
+            grid.innerHTML = '';
+
+            try {
+                const res = await fetch(`${API_URL}/albums`);
+                if (!res.ok) throw new Error('Failed to fetch albums');
+                const albums = await res.json();
+                rootAlbumsCache = albums;
+                renderRootAlbums(albums, grid);
+            } catch (err) {
+                console.warn('Backend unavailable, rendering static fallback collections:', err);
+                const fallbackList = [
+                    { id: 1, name: 'Modular Kitchens', slug: 'modular-kitchens', description: 'Intelligent layouts, seamless storage, and tailored finishes.', depth: 1, photoCount: 7, subAlbumCount: 0 },
+                    { id: 2, name: 'Home Interiors', slug: 'home-interiors', description: 'Complete residential spaces designed for modern living.', depth: 1, photoCount: 9, subAlbumCount: 0 },
+                    { id: 3, name: 'Office & Commercial', slug: 'office-commercial', description: 'Bespoke corporate, retail, and commercial interior solutions.', depth: 1, photoCount: 10, subAlbumCount: 0 },
+                    { id: 4, name: 'Wardrobes', slug: 'wardrobes', description: 'Custom modular sliding and hinged wardrobe systems.', depth: 1, photoCount: 8, subAlbumCount: 0 },
+                    { id: 5, name: 'Beds', slug: 'beds', description: 'Handcrafted luxury bedroom designs and beds.', depth: 1, photoCount: 7, subAlbumCount: 0 },
+                    { id: 6, name: 'TV Units', slug: 'tv-units', description: 'Minimalist media consoles and entertainment walls.', depth: 1, photoCount: 3, subAlbumCount: 0 }
+                ];
+                renderRootAlbums(fallbackList, grid);
+            } finally {
+                document.getElementById('gallery-loading').classList.add('hidden');
+                document.getElementById('root-gallery-view').classList.remove('hidden');
+            }
+        }
+
+        function renderAlbumDetailView(album, pushHistory) {
+            currentAlbum = album;
+            if (pushHistory) updateBrowserUrl(album.slug);
+            document.title = `${album.name} | Harista Interiors`;
+
+            renderBreadcrumbs(album.breadcrumbs || [{ name: album.name, slug: album.slug }]);
+
+            // Populate Header Info
+            document.getElementById('album-view-title').textContent = album.name;
+            document.getElementById('album-view-desc').textContent = album.description || '';
+            document.getElementById('album-depth-badge').textContent = `Level ${album.depth || 1} of 4`;
+
+            // Sub-albums Section
+            const subAlbums = album.subAlbums || [];
+            const subSection = document.getElementById('sub-albums-section');
+            const subGrid = document.getElementById('sub-albums-grid');
+            const subPill = document.getElementById('album-subalbums-count-pill');
+            const subLabel = document.getElementById('sub-albums-count-label');
+
+            if (subAlbums.length > 0) {
+                subGrid.innerHTML = '';
+                const subFragment = document.createDocumentFragment();
+                subAlbums.forEach(sub => {
+                    subFragment.appendChild(createAlbumCard(sub));
+                });
+                subGrid.appendChild(subFragment);
+                subLabel.textContent = `${subAlbums.length} ${subAlbums.length === 1 ? 'Sub-album' : 'Sub-albums'}`;
+                subPill.textContent = `${subAlbums.length} Sub-albums`;
+                subPill.classList.remove('hidden');
+                subSection.classList.remove('hidden');
+            } else {
+                subSection.classList.add('hidden');
+                subPill.classList.add('hidden');
+            }
+
+            // Photos Section
+            const photosSection = document.getElementById('photos-section');
+            const photosGrid = document.getElementById('photos-grid');
+            const photosPill = document.getElementById('album-photos-count-pill');
+            const photosLabel = document.getElementById('photos-count-label');
+
+            let resolvedPhotos = [];
+            if (album.images && album.images.length > 0) {
+                resolvedPhotos = album.images.map(img => ({
+                    url: (img.url.startsWith('http') || window.location.protocol !== 'file:')
+                        ? img.url
+                        : `http://localhost:5000${img.url}`,
+                    title: img.original_name || album.name
+                }));
+            }
+
+            // If dynamic photos are empty and static photos exist for this category, display static gallery
+            if (resolvedPhotos.length === 0 && staticCategoryPhotos[album.slug]) {
+                resolvedPhotos = staticCategoryPhotos[album.slug];
+            }
+
+            if (resolvedPhotos.length > 0) {
+                photosGrid.innerHTML = '';
+                const photoFragment = document.createDocumentFragment();
+                resolvedPhotos.forEach((photo) => {
+                    const fig = document.createElement('figure');
+                    fig.className = 'group relative aspect-[4/5] overflow-hidden rounded-sm cursor-pointer';
+                    fig.innerHTML = `
+                        <img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="${photo.url}" alt="${photo.title || album.name}" loading="lazy" decoding="async" />
+                        <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 p-5 text-white"></figcaption>
+                    `;
+                    photoFragment.appendChild(fig);
+                });
+                photosGrid.appendChild(photoFragment);
+
+                photosPill.textContent = `${resolvedPhotos.length} ${resolvedPhotos.length === 1 ? 'Photo' : 'Photos'}`;
+                photosLabel.textContent = `${resolvedPhotos.length} ${resolvedPhotos.length === 1 ? 'Photo' : 'Photos'}`;
+                photosSection.classList.remove('hidden');
+
+                // Bind Lightbox and Tilt
+                bindLightboxEvents();
+                bind3DTilt();
+            } else {
+                photosSection.classList.add('hidden');
+                photosPill.textContent = '0 Photos';
+            }
+
+            // Empty State Notice
+            const emptyNotice = document.getElementById('empty-album-notice');
+            if (subAlbums.length === 0 && resolvedPhotos.length === 0) {
+                emptyNotice.classList.remove('hidden');
+            } else {
+                emptyNotice.classList.add('hidden');
+            }
+
+            document.getElementById('gallery-loading').classList.add('hidden');
+            document.getElementById('album-drilldown-view').classList.remove('hidden');
+        }
+
+        // ==================== ALBUM DRILL-DOWN VIEW ====================
+        async function loadAlbumDetail(slugOrId, pushHistory = true) {
+            document.getElementById('root-gallery-view').classList.add('hidden');
+
+            if (albumCache.has(slugOrId)) {
+                renderAlbumDetailView(albumCache.get(slugOrId), pushHistory);
+                return;
+            }
+
+            document.getElementById('album-drilldown-view').classList.add('hidden');
+            document.getElementById('gallery-loading').classList.remove('hidden');
+
+            try {
+                const res = await fetch(`${API_URL}/albums/${encodeURIComponent(slugOrId)}`);
+                let album = null;
+
+                if (res.ok) {
+                    album = await res.json();
+                } else if (staticCategoryPhotos[slugOrId]) {
+                    // Static category fallback
+                    const prettyNames = {
+                        'modular-kitchens': 'Modular Kitchens',
+                        'home-interiors': 'Home Interiors',
+                        'office-commercial': 'Office & Commercial',
+                        'wardrobes': 'Wardrobes',
+                        'beds': 'Beds',
+                        'tv-units': 'TV Units'
+                    };
+                    album = {
+                        id: 0,
+                        name: prettyNames[slugOrId] || slugOrId,
+                        slug: slugOrId,
+                        description: 'Curated bespoke interior installations by Harista Interiors.',
+                        depth: 1,
+                        breadcrumbs: [{ name: prettyNames[slugOrId] || slugOrId, slug: slugOrId, depth: 1 }],
+                        subAlbums: [],
+                        images: []
+                    };
+                } else {
+                    throw new Error('Album not found');
+                }
+
+                albumCache.set(slugOrId, album);
+                if (album.slug && album.slug !== slugOrId) albumCache.set(album.slug, album);
+                renderAlbumDetailView(album, pushHistory);
+            } catch (err) {
+                console.error('Failed to load album:', err);
+                showToast('Album could not be loaded.');
+                loadRootView(pushHistory);
+            } finally {
+                document.getElementById('gallery-loading').classList.add('hidden');
+            }
+        }
+
+        // ==================== NAVIGATION HANDLERS ====================
+        function navigateToAlbum(slug, event) {
+            if (event) event.preventDefault();
+            loadAlbumDetail(slug, true);
+            const mainSection = document.getElementById('gallery-main-section');
+            if (mainSection) mainSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function navigateToRoot(event) {
+            if (event) event.preventDefault();
+            loadRootView(true);
+            const mainSection = document.getElementById('gallery-main-section');
+            if (mainSection) mainSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function navigateUp(event) {
+            if (event) event.preventDefault();
+            if (currentAlbum && currentAlbum.breadcrumbs && currentAlbum.breadcrumbs.length > 1) {
+                const parentCrumb = currentAlbum.breadcrumbs[currentAlbum.breadcrumbs.length - 2];
+                navigateToAlbum(parentCrumb.slug);
+            } else {
+                navigateToRoot();
+            }
+        }
+
+        // ==================== SHARE ALBUM (DEEP LINK COPY) ====================
+        async function shareCurrentAlbum() {
+            if (!currentAlbum) return;
+
+            let shareUrl = window.location.href;
+            const origin = window.location.origin;
+
+            if (window.location.pathname.startsWith('/gallery')) {
+                shareUrl = `${origin}/gallery/${currentAlbum.slug}`;
+            } else {
+                shareUrl = `${origin}${window.location.pathname}?album=${encodeURIComponent(currentAlbum.slug)}`;
+            }
+
+            try {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    await navigator.clipboard.writeText(shareUrl);
+                } else {
+                    const input = document.createElement('input');
+                    input.value = shareUrl;
+                    document.body.appendChild(input);
+                    input.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(input);
+                }
+                showToast('Album link copied to clipboard!');
+            } catch (err) {
+                console.error('Failed to copy link:', err);
+                showToast('Link copied: ' + shareUrl);
+            }
+        }
+
+        // ==================== LIGHTBOX CONTROLS ====================
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeBtn = document.getElementById('close-lightbox');
+        const prevBtn = document.getElementById('lightbox-prev');
+        const nextBtn = document.getElementById('lightbox-next');
+        const counter = document.getElementById('lightbox-counter');
+
+        function bindLightboxEvents() {
+            const galleryImages = document.querySelectorAll('#photos-grid img');
+            allLightboxImages = Array.from(galleryImages);
+
+            galleryImages.forEach((img, idx) => {
+                img.onclick = () => {
+                    currentLightboxIndex = idx;
+                    showLightboxImage(idx);
                     lightbox.classList.remove('hidden');
-                    document.body.style.overflow = 'hidden'; // Prevent background scrolling
-                });
+                    document.body.style.overflow = 'hidden';
+                };
             });
+        }
 
-            document.querySelectorAll('.gallery-panel figure').forEach(card => {
+        function showLightboxImage(index) {
+            if (index < 0 || index >= allLightboxImages.length) return;
+            currentLightboxIndex = index;
+            const targetImg = allLightboxImages[index];
+            lightboxImg.src = targetImg.src;
+            lightboxImg.alt = targetImg.alt || 'Harista Interiors portfolio photograph';
+
+            if (prevBtn) prevBtn.style.display = currentLightboxIndex > 0 ? 'flex' : 'none';
+            if (nextBtn) nextBtn.style.display = currentLightboxIndex < allLightboxImages.length - 1 ? 'flex' : 'none';
+            if (counter) counter.textContent = `${currentLightboxIndex + 1} / ${allLightboxImages.length}`;
+        }
+
+        function closeLightbox() {
+            lightbox.classList.add('hidden');
+            lightboxImg.src = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+        if (lightbox) {
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) closeLightbox();
+            });
+        }
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                showLightboxImage(currentLightboxIndex - 1);
+            });
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                showLightboxImage(currentLightboxIndex + 1);
+            });
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (lightbox && !lightbox.classList.contains('hidden')) {
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') showLightboxImage(currentLightboxIndex - 1);
+                if (e.key === 'ArrowRight') showLightboxImage(currentLightboxIndex + 1);
+            }
+        });
+
+        // ==================== 3D TILT EFFECT ====================
+        function bind3DTilt() {
+            if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+            document.querySelectorAll('#photos-grid figure').forEach(card => {
                 card.addEventListener('pointermove', function(event) {
-                    if (event.pointerType === 'touch') return;
                     const rect = card.getBoundingClientRect();
                     const x = (event.clientX - rect.left) / rect.width - .5;
                     const y = (event.clientY - rect.top) / rect.height - .5;
@@ -1307,29 +1837,86 @@
                     card.style.setProperty('--rx', '0deg');
                 });
             });
+        }
 
-            function closeLightbox() {
-                lightbox.classList.add('hidden');
-                lightboxImg.src = '';
-                document.body.style.overflow = 'auto'; // Restore background scrolling
+        // ==================== LOTTIE ANIMATION ====================
+        function loadWorkAnimation() {
+            const player = document.getElementById('work-lottie-player');
+            if (!player) return;
+            if (window.HARISTA_HOME_ANIMATION) {
+                if (typeof player.load === 'function') {
+                    player.load(window.HARISTA_HOME_ANIMATION);
+                } else if (window.customElements && window.customElements.whenDefined) {
+                    window.customElements.whenDefined('lottie-player').then(function() {
+                        player.load(window.HARISTA_HOME_ANIMATION);
+                    });
+                }
+            } else {
+                player.load('assests/Home.json');
+            }
+        }
+
+        // ==================== INITIALIZATION ====================
+        document.addEventListener('DOMContentLoaded', function() {
+            loadWorkAnimation();
+
+            // Handle browser Back / Forward buttons
+            window.addEventListener('popstate', function(e) {
+                const slug = getTargetSlugFromUrl();
+                if (slug) {
+                    loadAlbumDetail(slug, false);
+                } else {
+                    loadRootView(false);
+                }
+            });
+
+            // Check if initial URL points to a specific album
+            const initialSlug = getTargetSlugFromUrl();
+            if (initialSlug) {
+                loadAlbumDetail(initialSlug, false);
+            } else {
+                loadRootView(false);
+            }
+        });
+
+        // Accessible Mobile Navigation Menu
+        (function() {
+            const toggleBtn = document.getElementById('mobile-menu-toggle');
+            const menu = document.getElementById('mobile-nav-menu');
+            const iconOpen = document.getElementById('menu-icon-open');
+            const iconClose = document.getElementById('menu-icon-close');
+            if (!toggleBtn || !menu) return;
+
+            function toggleMenu(show) {
+                const isOpen = show !== undefined ? show : menu.classList.contains('hidden');
+                if (isOpen) {
+                    menu.classList.remove('hidden');
+                    toggleBtn.setAttribute('aria-expanded', 'true');
+                    iconOpen?.classList.add('hidden');
+                    iconClose?.classList.remove('hidden');
+                } else {
+                    menu.classList.add('hidden');
+                    toggleBtn.setAttribute('aria-expanded', 'false');
+                    iconOpen?.classList.remove('hidden');
+                    iconClose?.classList.add('hidden');
+                }
             }
 
-            closeBtn.addEventListener('click', closeLightbox);
-
-            // Close when clicking outside the image container
-            lightbox.addEventListener('click', function(e) {
-                if (e.target === lightbox) {
-                    closeLightbox();
+            toggleBtn.addEventListener('click', () => toggleMenu());
+            menu.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.addEventListener('click', () => toggleMenu(false));
+            });
+            document.addEventListener('click', (e) => {
+                if (!toggleBtn.contains(e.target) && !menu.contains(e.target) && !menu.classList.contains('hidden')) {
+                    toggleMenu(false);
                 }
             });
-
-            // Close on ESC key press
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) {
-                    closeLightbox();
+            window.addEventListener('resize', () => {
+                if (window.innerWidth >= 768 && !menu.classList.contains('hidden')) {
+                    toggleMenu(false);
                 }
             });
-        });
+        })();
     </script>
 </body>
 

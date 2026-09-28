@@ -1,0 +1,29 @@
+CREATE TABLE IF NOT EXISTS albums (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL,
+  slug TEXT NOT NULL UNIQUE,
+  description TEXT,
+  cover_image TEXT,
+  parent_id INTEGER DEFAULT NULL REFERENCES albums(id) ON DELETE CASCADE,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS images (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  album_id INTEGER NOT NULL,
+  filename TEXT NOT NULL,
+  original_name TEXT,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (album_id) REFERENCES albums(id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS admin (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  username TEXT NOT NULL UNIQUE,
+  password TEXT NOT NULL
+);
+
+CREATE INDEX IF NOT EXISTS idx_albums_parent_id ON albums(parent_id);
+CREATE INDEX IF NOT EXISTS idx_albums_slug ON albums(slug);
+CREATE INDEX IF NOT EXISTS idx_images_album_id ON images(album_id);
+

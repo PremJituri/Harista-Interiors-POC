@@ -32,8 +32,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="assests/hero-animation.js"></script>
     <!-- Browser Tab Icon (Favicon) -->
-    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/PremJituri/Harista-Interiors-POC/refs/heads/main/assests/logo.png" />
+    <link rel="icon" type="image/png" href="assests/logo.png" />
 
     <!-- Local SEO Meta Tags -->
     <meta name="robots" content="index, follow">
@@ -1847,7 +1848,7 @@ iframe[src*="google.com/maps"] {
     <header class="sticky top-0 z-50 border-b border-stone-200/80 bg-sand/95 backdrop-blur">
         <nav class="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-8" aria-label="Main navigation">
             <a href="#top" class="flex items-center gap-3" aria-label="Harista Interiors home">
-                <img src="https://raw.githubusercontent.com/PremJituri/Harista-Interiors-POC/refs/heads/main/assests/logo.png" alt="Harista Interiors" class="logo-image h-10 w-10 object-contain" />
+                <img src="assests/logo.png" alt="Harista Interiors" class="logo-image h-10 w-10 object-contain" />
                 <span class="leading-none">
                     <span>
                         <span>HARISTA</span>
@@ -1861,8 +1862,26 @@ iframe[src*="google.com/maps"] {
                 <a class="transition hover:text-oak" href="index.html#contact">Contact</a>
                 <a class="transition hover:text-oak" href="our-work.html">Our Work</a>
             </div>
-            <a href="https://wa.me/919481809907" target="_blank" rel="noopener" class="rounded-full bg-[#1f7a4e] px-4 py-2.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#17633e] sm:px-5">WhatsApp <span class="hidden sm:inline">Us</span> ↗</a>
+            <div class="flex items-center gap-3">
+                <a href="admin-login.html" class="flex h-9 w-9 items-center justify-center rounded-full border border-oak/25 bg-white/30 text-oak transition hover:bg-white/50 hover:text-ink" title="Admin Login" aria-label="Admin Login">
+                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+                </a>
+                <a href="https://wa.me/919481809907" target="_blank" rel="noopener" class="rounded-full bg-[#1f7a4e] px-4 py-2.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#17633e] sm:px-5">WhatsApp <span class="hidden sm:inline">Us</span> ↗</a>
+                <button id="mobile-menu-toggle" type="button" class="flex h-9 w-9 items-center justify-center rounded-lg border border-oak/25 bg-white/30 text-ink transition hover:bg-white/50 md:hidden" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav-menu">
+                    <svg id="menu-icon-open" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                    <svg id="menu-icon-close" class="hidden h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
         </nav>
+        <div id="mobile-nav-menu" class="hidden border-t border-stone-200/80 bg-sand/98 px-5 py-4 backdrop-blur md:hidden" aria-label="Mobile navigation">
+            <div class="flex flex-col space-y-3 font-medium text-base">
+                <a class="mobile-nav-link py-2 transition hover:text-oak" href="index.html#services">Services</a>
+                <a class="mobile-nav-link py-2 transition hover:text-oak" href="index.html#factory">Our Factory</a>
+                <a class="mobile-nav-link py-2 transition hover:text-oak" href="index.html#portfolio">Portfolio</a>
+                <a class="mobile-nav-link py-2 transition hover:text-oak" href="index.html#contact">Contact</a>
+                <a class="mobile-nav-link py-2 font-semibold text-oak transition hover:text-ink" href="our-work.html">Our Work ↗</a>
+            </div>
+        </div>
     </header>
 
     <main id="top">
@@ -1886,7 +1905,7 @@ iframe[src*="google.com/maps"] {
                 </div>
                 <div class="hero-lottie" aria-hidden="true">
                     <div class="hero-lottie-frame">
-                        <lottie-player src="assests/3D%20Isometric%20Living%20Room.json" loop autoplay></lottie-player>
+                        <lottie-player id="hero-lottie-player" background="transparent" speed="1" loop autoplay></lottie-player>
                     </div>
                 </div>
             </div>
@@ -1937,7 +1956,7 @@ iframe[src*="google.com/maps"] {
 
         <section id="factory" class="bg-[#ded3c2] py-16 lg:py-24">
             <div class="mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 lg:grid-cols-2 lg:items-center lg:px-12">
-                <div class="relative h-[420px] overflow-hidden"><img class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=1200&q=85" alt="Precision woodworking in an interiors factory" /><span class="absolute bottom-5 left-5 bg-ink px-4 py-3 text-xs font-bold uppercase tracking-widest text-gold">Kanbargi Industrial Area</span></div>
+                <div class="relative h-[420px] overflow-hidden"><img class="h-full w-full object-cover" src="D:\BK Projects\Harista Interiors\POC 3\assests\HI_Factory.png?auto=format&fit=crop&w=1200&q=85" alt="Precision woodworking in an interiors factory" loading="lazy" decoding="async" /><span class="absolute bottom-5 left-5 bg-ink px-4 py-3 text-xs font-bold uppercase tracking-widest text-gold">Kanbargi Industrial Area</span></div>
                 <div class="lg:pl-10">
                     <p class="text-xs font-bold uppercase tracking-[.22em] text-oak">The Harista difference</p>
                     <h2 class="display mt-3 text-4xl leading-tight sm:text-5xl">Factory control. <br />A better finish.</h2>
@@ -1968,13 +1987,13 @@ iframe[src*="google.com/maps"] {
                 </div><a href="our-work.html" class="border-b-2 border-gold pb-2 font-semibold">Check our work ↗</a>
             </div>
             <div class="mt-10 grid gap-4 md:grid-cols-2">
-                <figure class="group relative h-[420px] overflow-hidden"><img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85" alt="Contemporary living room project" />
+                <figure class="group relative h-[420px] overflow-hidden"><img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85" alt="Contemporary living room project" loading="lazy" decoding="async" />
                     <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 p-6 text-white"><span class="rounded-full border border-white/50 px-3 py-1 text-xs">Home Interior</span><strong class="mt-3 block text-xl">Modern family residence</strong></figcaption>
                 </figure>
-                <figure class="group relative h-[420px] overflow-hidden"><img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1556912167-f556f1f39fdf?auto=format&fit=crop&w=1200&q=85" alt="Elegant modular kitchen project" />
+                <figure class="group relative h-[420px] overflow-hidden"><img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1556912167-f556f1f39fdf?auto=format&fit=crop&w=1200&q=85" alt="Elegant modular kitchen project" loading="lazy" decoding="async" />
                     <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 p-6 text-white"><span class="rounded-full border border-white/50 px-3 py-1 text-xs">Modular Kitchen</span><strong class="mt-3 block text-xl">Warm oak kitchen</strong></figcaption>
                 </figure>
-                <figure class="group relative h-[300px] overflow-hidden md:col-span-2"><img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1600&q=85" alt="Luxury bedroom project" />
+                <figure class="group relative h-[300px] overflow-hidden md:col-span-2"><img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1600&q=85" alt="Luxury bedroom project" loading="lazy" decoding="async" />
                     <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 p-6 text-white"><span class="rounded-full border border-white/50 px-3 py-1 text-xs">Bedroom</span><strong class="mt-3 block text-xl">A restful private suite</strong></figcaption>
                 </figure>
             </div>
@@ -2027,20 +2046,86 @@ iframe[src*="google.com/maps"] {
         </div>
     </footer>
     <script>
-        document.querySelectorAll('#services article, #portfolio figure').forEach(function(card) {
-            card.addEventListener('pointermove', function(event) {
-                if (event.pointerType === 'touch') return;
-                const rect = card.getBoundingClientRect();
-                const x = (event.clientX - rect.left) / rect.width - .5;
-                const y = (event.clientY - rect.top) / rect.height - .5;
-                card.style.setProperty('--ry', (x * 5).toFixed(2) + 'deg');
-                card.style.setProperty('--rx', (-y * 5).toFixed(2) + 'deg');
+        if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+            document.querySelectorAll('#services article, #portfolio figure').forEach(function(card) {
+                card.addEventListener('pointermove', function(event) {
+                    if (event.pointerType === 'touch') return;
+                    const rect = card.getBoundingClientRect();
+                    const x = (event.clientX - rect.left) / rect.width - .5;
+                    const y = (event.clientY - rect.top) / rect.height - .5;
+                    card.style.setProperty('--ry', (x * 5).toFixed(2) + 'deg');
+                    card.style.setProperty('--rx', (-y * 5).toFixed(2) + 'deg');
+                });
+                card.addEventListener('pointerleave', function() {
+                    card.style.setProperty('--ry', '0deg');
+                    card.style.setProperty('--rx', '0deg');
+                });
             });
-            card.addEventListener('pointerleave', function() {
-                card.style.setProperty('--ry', '0deg');
-                card.style.setProperty('--rx', '0deg');
+        }
+
+        // Load Lottie animation directly from memory (bypasses file:/// CORS blocks)
+        (function() {
+            function loadHeroAnimation() {
+                const player = document.getElementById('hero-lottie-player');
+                if (!player) return;
+                if (window.HARISTA_HERO_ANIMATION) {
+                    if (typeof player.load === 'function') {
+                        player.load(window.HARISTA_HERO_ANIMATION);
+                    } else if (window.customElements && window.customElements.whenDefined) {
+                        window.customElements.whenDefined('lottie-player').then(function() {
+                            player.load(window.HARISTA_HERO_ANIMATION);
+                        });
+                    }
+                } else {
+                    player.load('assests/hero-animation.json');
+                }
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', loadHeroAnimation);
+            } else {
+                loadHeroAnimation();
+            }
+        })();
+
+        // Accessible Mobile Navigation Menu
+        (function() {
+            const toggleBtn = document.getElementById('mobile-menu-toggle');
+            const menu = document.getElementById('mobile-nav-menu');
+            const iconOpen = document.getElementById('menu-icon-open');
+            const iconClose = document.getElementById('menu-icon-close');
+            if (!toggleBtn || !menu) return;
+
+            function toggleMenu(show) {
+                const isOpen = show !== undefined ? show : menu.classList.contains('hidden');
+                if (isOpen) {
+                    menu.classList.remove('hidden');
+                    toggleBtn.setAttribute('aria-expanded', 'true');
+                    iconOpen?.classList.add('hidden');
+                    iconClose?.classList.remove('hidden');
+                } else {
+                    menu.classList.add('hidden');
+                    toggleBtn.setAttribute('aria-expanded', 'false');
+                    iconOpen?.classList.remove('hidden');
+                    iconClose?.classList.add('hidden');
+                }
+            }
+
+            toggleBtn.addEventListener('click', () => toggleMenu());
+            menu.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.addEventListener('click', () => toggleMenu(false));
             });
-        });
+            document.addEventListener('click', (e) => {
+                if (!toggleBtn.contains(e.target) && !menu.contains(e.target) && !menu.classList.contains('hidden')) {
+                    toggleMenu(false);
+                }
+            });
+            window.addEventListener('resize', () => {
+                if (window.innerWidth >= 768 && !menu.classList.contains('hidden')) {
+                    toggleMenu(false);
+                }
+            });
+        })();
     </script>
 </body>
 
